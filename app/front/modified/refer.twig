@@ -1,0 +1,158 @@
+{% include 'header1.twig' %}
+
+
+		<style>
+	.affi-wrap {
+        text-align: center;
+        padding: 25px;
+        box-shadow: 0px 0px 6px 0px #e06c41;
+        border-radius: 8px;
+    }
+  	.affi-icon i {
+        font-size: 45px;
+        margin-bottom: 20px;
+        color: #e06c41;
+    }
+  	.affi-title h2 {
+        font-size: 30px;
+        color: #3c4464;
+    }
+  	.affi-desc p {
+        color: #3c4464;
+    }
+  	.btn.referal-btn {
+        margin: auto;
+        display: block;
+        background-color: #f37634;
+        color: #fff;
+        border-radius: 100px;
+        font-size: 12px;
+    }
+</style>
+<div id="page-wrapper">
+    <div class="inner-page-wrapper">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+        <script>
+            var clipboard = new ClipboardJS('.btn');
+        </script>
+        <div class="container-fluid">
+            <div class="well">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="text-center" style="color:#e06c41;">How Does {{ site["site_name"] }} Affiliate Program Work</h2>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="affi-wrap">
+                            <div class="affi-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="affi-title">
+                                <h2>Sign Up</h2>
+                            </div>
+                            <div class="affi-desc">
+                                <p>In the first step you need to sign up</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="affi-wrap">
+                            <div class="affi-icon">
+                                <i class="fas fa-share"></i>
+                            </div>
+                            <div class="affi-title">
+                                <h2>Promote Our Services</h2>
+                            </div>
+                            <div class="affi-desc">
+                                <p>You can try to recommend our services to a friend or colleague</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="affi-wrap">
+                            <div class="affi-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="affi-title">
+                                <h2>Get Paid</h2>
+                            </div>
+                            <div class="affi-desc">
+                                <p>You will get Commission rate on your friend's money spent, as if your friend did a $ 100 business with us, Commission rate will be given to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+            
+                    <div class="well">
+                        <div class="table-responsive">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th>Referral link</th>
+                                        <th>Commission rate</th>
+                                        <th>Minimum payout</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a id="referal-link" type="button" class="btn btn-defualt affi-btn" data-toggle="modal" data-target="#exampleModal">{{ site["url"] }}/affiliates?ref={{ user['ref_code'] }} </a><button class="btn referal-btn" data-clipboard-text="{{ site["url"] }}/affiliates?ref={{ user['ref_code'] }}">
+                Copy Referral link
+            </button></td>
+                                        <td>2%</td>
+										<td>$ 10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <div class="table-responsive">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th>Total visits</th>
+                                        <th>Unpaid referrals</th>
+                                        <th>Paid referrals</th>
+                                        <th>Conversion rate</th>
+                                        <th>Total earnings</th>
+                                        <th>Unpaid earnings</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0%</td>
+                                        <td>$ 0</td>
+                                        <td>$ 0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            
+            
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+{% include 'footer1.twig' %}
+
+

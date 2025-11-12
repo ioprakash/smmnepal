@@ -1,0 +1,130 @@
+{% include 'header.twig' %}
+<div class="component_navbar" ></div>
+    <div class="component_navbar_sub "></div>
+  <div class="wrapper-content">
+    <div class="wrapper-content__header">
+          </div>
+    <div class="wrapper-content__body">
+  <!-- Main variables *content* -->
+  <div id="block_api" class="mt-5">
+    <div class="block-api">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="col-md-12g">
+              <div class="well">
+                <div class="dashboard-content">
+                  <div class="head clearfix">
+                    <div class="card mt-4">
+                      <div class="content">
+                        <div id="2fa-approve-error-block" style="display: none;" class="mb-2 alert alert-dismissible alert-danger">
+                          <button type="button" class="close" onclick="closeErrorBlock()">&times;</button>
+                          <span id="2fa-error-text"></span>
+                        </div>
+                        <div id="2fa-approve-success-block" style="display: none;" class="mb-2 alert alert-dismissible alert-success">
+                          <button type="button" class="close" onclick="closeSuccessBlock()">&times;</button>
+                          <span id="2fa-success-text"></span>
+                        </div>
+                        
+                         <h4 class="mb-3"></i> Two-factor authentication</h4>
+                        <form id="2fa-generate-form" method="post" action="/2fa/generate" style="display: none;">
+                          <p>Email-based option to add an extra layer of protection to your account. When signing in, you’ll need to enter a code that will be sent to your email address.</p>
+                          <input type="hidden" name="enabled" value="1">
+                          <input type="hidden" id="generated-otp" name="generated_otp">
+                          <input type="hidden" name="_csrf" value="<?php echo generateCSRFToken(); ?>">
+                          <button id="2fa-generate" type="button" class="btn btn-block btn-big-primary" onclick="enable2FA()">Enable</button>
+                        </form>
+
+                        <form id="2fa-approve-form" method="post" action="/2fa/approve" style="display: block;">
+                          <p>Please check your email and enter the code below.</p>
+                          <div class="form-group mt-2">
+                            <label for="code" class="control-label">Code</label>
+                            <input type="text" id="code" name="code" class="form-control">
+                          </div>
+                          <input type="hidden" name="enabled" value="1">
+                          <input type="hidden" name="_csrf" value="<?php echo generateCSRFToken(); ?>">
+                          <button id="2fa-approve" type="button" class="btn btn-block btn-big-primary" onclick="approve2FA()">Continue</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+  <script>
+  let otp;
+  window.onload = function() {
+  otp = Math.floor(100000 + Math.random() * 900000);
+  $.ajax({ type: "POST", url: "/2fa/generate", data: { enabled: 1, _csrf: getCSRFToken(), otp: otp},
+    success: function(response) {
+      toggleForms();
+    },
+    error: function(error) {
+      displayError("Something went worng, please try again.");
+    }
+  });
+}
+function enable4FA() {
+    const otp_v = 0;
+  $.ajax({ type: "POST", url: "/2fa/success", data: { enabled: 1, _csrf: getCSRFToken(), otp: otp_v}
+  });
+}
+  function approve2FA() {
+  const enteredCode = document.getElementById('code').value;
+  if (enteredCode === otp.toString()) {
+    displaySuccess('Two-factor authentication has succeeded');
+    enable4FA()
+    setTimeout(function() {
+    window.location.href = "/";
+  }, 500);
+  } else {
+    displayError('Invalid code. Please check your email and try again.');
+  }
+}
+
+function toggleForms() {
+    const generateForm = document.getElementById('2fa-generate-form');
+    const approveForm = document.getElementById('2fa-approve-form');
+    generateForm.style.display = generateForm.style.display === 'none' ? 'none' : 'block';
+    approveForm.style.display = approveForm.style.display === 'block' ? 'block' : 'block';
+  }
+
+    function displayError(error) {
+      document.getElementById('2fa-error-text').innerText = error;
+      document.getElementById('2fa-approve-error-block').style.display = 'block';
+      document.getElementById('2fa-approve-success-block').style.display = 'none';
+    }
+    
+    function displaySuccess(success) {
+      document.getElementById('2fa-success-text').innerText = success;
+      document.getElementById('2fa-approve-success-block').style.display = 'block';
+      document.getElementById('2fa-approve-error-block').style.display = 'none';
+    }
+    function closeSuccessBlock() {
+      document.getElementById('2fa-approve-success-block').style.display = 'none';
+    }
+    function closeErrorBlock() {
+      document.getElementById('2fa-approve-error-block').style.display = 'none';
+    }
+
+    function getCSRFToken() {
+      return document.querySelector('input[name="_csrf"]').value;
+    }
+
+    function simulateServerRequest(url, method, data, callback) {
+      setTimeout(function() {
+        const response = { success: true };
+        if (callback) {
+          callback(response);
+        }
+      }, 1000);
+    }
+  </script>
+  {% include 'footer.twig' %}

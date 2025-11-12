@@ -1,0 +1,661 @@
+{% include 'header1.twig' %}
+
+
+<div id="page-wrapper">
+  <div class="inner-page-wrapper">
+	<style>  	
+	/* giveaway page */
+  	
+  	img {
+      max-width: unset;
+    }
+  	.banner-1-shape img {
+        width: 100%;
+        max-height: 727px;
+    }
+  	div.iconsSec ul {
+    	padding: 0;
+    }
+    .banner-1 {
+      padding: 225px 0 165px;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      margin: -20px 0 0;
+    }
+    .banner-1-shape {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+    .cl-white {
+      color: #fff;
+    }
+    .banner-content-1 .title {
+      font-size: 70px !important;
+      margin-bottom: 15px !important;
+      font-weight: 700 !important;
+    }
+    .banner-content-1 p {  
+      margin-bottom: 38px;
+    }
+    .cl-white p {
+      color: rgba(255,255,255,.9);
+    }
+    .banner-button-group {
+      margin: -15px;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .button-4 {
+      display: inline-block;
+      padding: 15px 37px;
+      font-size: 14px;
+      margin: 15px;
+      text-transform: capitalize;
+      font-weight: 600;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+      color: #fff !important;
+      padding: 15px 45px;
+      background: linear-gradient(135deg, #ffb142 0%,#ff7424 100%);
+    }
+    .button-4.active {
+    background: 0 0;
+    color: #fff;
+    border: 1px solid #fff;
+    }
+    .banner-1-slider-wrapper {
+    position: relative;
+    }
+    .banner-1-slider-wrapper .banner-1-slider {
+    width: 766px;
+    }
+    .banner-1-slider-wrapper .banner-1-slider img {
+    display: block;
+    width: 100%;
+    }
+    .banner-1-slider-wrapper .arrow {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    }
+  	/* bnr sec */
+    div.iconsSec {
+        text-align: center;
+    }
+    div.iconsSec ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        justify-content: space-between;
+        margin: 0 0 100px;
+    }
+    div.iconsSec ul li {
+        display: block;
+        width: 16%;
+        background: linear-gradient(135deg, #ffb142 0%,#ff7424 100%);
+        padding: 15px 0;
+        border-radius: 20px 5px;
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 3px 3px 0 #0000004f;
+    }
+    div.iconsSec ul li i {
+        margin-right: 10px;
+        transform: scale(1.3);
+    }
+
+    /* splitted section */
+	.section-header {
+        text-align: center;
+        margin: 0 auto 60px;
+        max-width: 620px;
+        position: relative;
+        z-index: 1;
+    }
+  	.section-header .cate {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 38px;
+        text-transform: capitalize;
+        background: linear-gradient(to right, #4e0eae 33%,#b314b2 77%);
+            background-clip: border-box;
+        background-clip: border-box;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+  	.section-header .title {
+        font-size: 40px;
+        line-height: 46px;
+        margin-top: -20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #204163;
+    }
+  	.section-header p {
+        color: #767676 !important;
+    }
+  	
+    section.spilttedSection {
+      background-color: #f0f5fc;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    section.spilttedSection .container {
+        position: relative;
+    }
+    section.spilttedSection .row {
+      align-items: center;
+    }
+    section.spilttedSection .section-header {
+      text-align: left;
+    }
+    section.spilttedSection  .fea-box {
+      background-color: #ffffffe6;
+      padding: 40px 20px;
+      text-align: center;
+      margin: 0 0 30px;
+      box-shadow: 1.95px 15.881px 30px 0 rgba(47,105,252,.1);
+      border-radius: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    section.spilttedSection .fea-box span {
+      display: block;
+    }
+    section.spilttedSection .fea-box span img {
+      max-width: 100px;
+    }
+    section.spilttedSection .fea-box  h3 {
+      font-size: 20px;
+      margin: 15px 0 10px;
+      background: linear-gradient(to right, #4e0eae 33%,#b314b2 77%);
+      background-clip: border-box;
+      background-clip: border-box;
+      background-clip: border-box;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    section.spilttedSection .fea-box p {
+      margin: 0;
+      color: #212529 !important;
+    }
+    section.spilttedSection .fea-box p:nth-child(3) {
+      font-weight: 600;
+      margin: 10px 0;
+      padding: 0 0 10px;
+      position: relative;
+    }
+    section.spilttedSection .fea-box p:nth-child(3)::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(135deg, #ffb142 0%,#ff7424 100%);
+      position: absolute;
+      bottom: 0;
+    }
+    section.spilttedSection .pricetag {
+        margin: 0 0 0 90px;
+        position: relative;
+        top: -40px;
+    }
+    section.spilttedSection .pricetag sub {
+        background: linear-gradient(to right, #4e0eae 33%,#b314b2 77%);
+        padding: 10px 30px;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+    section.spilttedSection .pricetag span {
+        font-size: 250px;
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, #ffb142 0%,#ff7424 100%);
+            background-clip: border-box;
+        background-clip: border-box;
+        background-clip: border-box;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    section.spilttedSection .happy-girl {
+        position: absolute;
+        bottom: -80px;
+        right: -270px;
+  		max-height: 900px;
+    }
+    section.spilttedSection.two .happy-girl {
+        max-width: 500px;
+        right: auto;
+        left: -270px;
+    }
+    section.spilttedSection.three .happy-girl {
+        max-height: 120%;
+    }
+
+    /* terms div */
+	.download-section {
+        padding: 120px 0;
+    }
+  	.section-header .title:last-child {
+        margin-bottom: -19px;
+    }
+    div.terms-div {
+        text-align: center;
+    }
+    div.terms-div ul {
+        margin: 0 0 40px;
+        padding: 0;
+        list-style: none;
+    }
+    div.terms-div ul li {
+        font-size: 20px;
+        margin: 0 0 5px;
+    }
+    div.terms-div ul li b {
+        display: block;
+        margin: 30px 0 0;
+    }
+
+    div.terms-div img {
+        margin: 0 0 40px;
+  	}
+  	@media (max-width: 1400px) {
+        img {
+            max-width: 100%;
+        }
+        .banner-1-slider-wrapper .banner-1-slider {
+            width: 100%;
+        }
+    }
+  	@media (max-width: 1199px) {  		
+        .banner-content-1 .title {
+            font-size: 60px !important;
+        }
+  		section.spilttedSection .happy-girl {
+            right: -116px;
+  			bottom: -40px;
+  			max-height: 860px !important;
+        }
+  		section.spilttedSection .pricetag {
+            margin: 0 0 0 60px;
+        }
+  		section.spilttedSection.two .happy-girl {
+            left: -110px;
+        }
+  		
+
+      }
+  	@media (max-width: 991px) {
+      .banner-content-1.cl-white {
+          text-align: center;
+      }
+      .banner-button-group {
+          margin: -25px 0 20px;
+          justify-content: center;
+      }
+  
+  	  section.spilttedSection .pricetag span {
+          font-size: 150px;
+      }
+  	  
+
+    }
+  	@media (max-width: 767px) {
+      .banner-content-1 h3 {
+          font-size: 20px;
+      }
+      .banner-content-1 .title {
+          font-size: 44px !important;
+          margin: 0 0 30px !important;
+      }
+      .section-header .title {
+          font-size: 30px;
+          line-height: 40px;
+      }
+      .download-options {
+          padding: 0;
+      }
+  	  div.iconsSec ul li {
+          width: 31%;
+          margin: 5px;
+      }
+  	  .section-header p {
+          position: relative;
+          z-index: 1;
+      }
+  	  section.spilttedSection .pricetag {
+          margin: 0 0 -110px;
+          display: block;
+          text-align: right;
+          top: -110px;
+      }
+  	  section.spilttedSection:not(.two) .container > .row > .col-sm-6:nth-child(2) {
+          width: 50%;
+      }
+  	  section.spilttedSection:not(.two) .happy-girl {
+          right: -90px;
+          bottom: auto;
+          top: 70%;
+          transform: translateY(-70%);
+      }  	  
+  	  section.spilttedSection.two .container > .row > .col-sm-6:nth-child(1) {
+          width: 50%;
+          margin: 0 0 0 auto;
+      }
+  	  section.spilttedSection.two .happy-girl {
+          left: -80px;
+          bottom: auto;
+          top: 25%;
+          transform: translateY(-25%);
+      }
+  
+    }
+  	@media (max-width: 550px) {
+  		.userAuth .banner-1 {
+            padding: 60px 0 0;
+        }
+      .banner-1 {
+          padding: 140px 0 0;
+      }
+      .banner-content-1 h3 {
+          font-size: 18px !important;
+      }
+      .banner-content-1 .title {
+          font-size: 24px !important;
+      }
+      .banner-button-group .button-4 {
+          display: block;
+          width: 100%;
+          margin: 0 7px 10px;
+      }
+      .section-header .cate {
+          font-size: 18px;
+      }
+      .section-header .title {
+          font-size: 22px;
+          line-height: 30px;
+      }
+      .section-header {
+          margin: 0 auto 30px;
+      }
+      .download-section {
+          padding: 70px 0 40px;
+      }
+  	  section.spilttedSection {
+          padding: 40px 0;
+      }
+  	  div.iconsSec ul {
+          margin: 0 0 40px;
+      }
+  	  div.iconsSec ul li {
+          width: 46%;
+  		  font-size: 14px;
+      }
+  	  div.iconsSec ul li i {
+          margin-right: 5px;
+          transform: scale(1);
+      }
+  	  section.spilttedSection .pricetag {
+          margin: 0 0 -80px;
+          top: -90px;
+      }
+  	  section.spilttedSection .pricetag sub {
+          padding: 6px 20px;
+          font-size: 16px;
+      }
+  	  section.spilttedSection .happy-girl {
+          display: none;
+      }
+  	  section.spilttedSection:not(.two) .container > .row > .col-sm-6:nth-child(2) {
+          width: 100%;
+      }
+  	  section.spilttedSection .fea-box span img {
+          max-width: 60px;
+      }
+  	  section.spilttedSection.two .container > .row > .col-sm-6:nth-child(1) {
+          width: 100%;
+          margin: 0;
+      }
+  	  section.spilttedSection.two .container > .row {
+          flex-direction: column-reverse;
+      }
+  	  div.terms-div ul li {
+          font-size: 16px;
+          margin: 0 0 5px;
+      }
+  	  
+  
+
+    }
+  
+  
+</style>
+<section class="banner-1 bg_img oh" data-background="https://res.cloudinary.com/dy1cmh16l/image/upload/v1635709571/SMMNepal/topBg_dmnjad.png" style="background-image: url(" https:="" res.cloudinary.com="" dy1cmh16l="" image="" upload="" v1635709571="" smmnepal="" topbg_dmnjad.png");"="">
+  <div class="banner-1-shape">
+    <img src="https://imgur.com/RxWttST.png" alt="css">
+  </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="banner-content-1 cl-white">
+          <h3>Earn Money With Us</h3>
+          <h1 class="title">Giveaway</h1>
+          <p>Earn money every day by sharing about us in
+            social media, also use your affiliate link.</p>
+          <div class="banner-button-group">
+            <a href="#0" class="button-4">Spread the Word</a>
+            <a href="#0" class="button-4 active">How it Works</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="banner-1-slider-wrapper">
+          <div class="banner-1-slider items-slider">
+            <img src="https://imgur.com/AB2IHAD.png">
+          </div>
+          <div class="arrow">
+            <img src="https://imgur.com/SkxMJ3x.png" alt="banner">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>    
+
+<!-- splitted section -->
+<section class="spilttedSection">
+  <div class="iconsSec">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul>
+            <li><i class="fas fa-pencil-alt"></i>Post</li>
+            <li><i class="fab fa-tiktok"></i>TikTok</li>
+            <li><i class="fas fa-blog"></i>Blog</li>
+            <li><i class="fas fa-envelope-open"></i>Email</li>
+            <li><i class="fas fa-video"></i>Video</li>
+            <li><i class="fas fa-share-square"></i>Affiliate Link</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-header">
+          <h5 class="cate">Earn Money With Making Video</h5>
+          <h2 class="title">Making Video</h2>
+          <p>Create Any video about our panel and share it any social media
+            <br>than you can earn $2</p>
+          <p>You can uplaod these on video on any platform like
+            <br>youtube , facebook , instagram ,twitter, tiktok or any platform you like </p>
+          <span class="pricetag"><sub>EARN</sub><span>$2</span></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="fea-box">
+              <span><img src="https://imgur.com/ZU7Blr3.png"></span>
+              <h3>Make a Complete Video</h3>
+              <p>How To Use SmmNepal.Com</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+            <div class="fea-box">
+              <span><img src="https://imgur.com/ZU7Blr3.png"></span>
+              <h3>Make a Complete Video</h3>
+              <p>How To Create New Order </p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="fea-box">
+              <span><img src="https://imgur.com/ZU7Blr3.png"></span>
+              <h3>Make a Complete Video</h3>
+              <p>How To Add Funds</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="happy-girl" src="https://imgur.com/AYNMYM1.png" alt="happy-girl">
+  </div>
+</section>
+
+<!-- splitted section two -->
+<section class="spilttedSection two">        
+  <div class="container">
+    <div class="row">                
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="fea-box">
+              <span><img src="https://imgur.com/fDPRseX.png"></span>
+              <h3>Make a Complete Video</h3>
+              <p>How To Use SmmNepal.Com</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>                            
+          </div>
+          <div class="col-sm-6">
+            <div class="fea-box">
+              <span><img src="https://imgur.com/fDPRseX.png"></span>
+              <h3>Make a Complete Video</h3>
+              <p>How To Create New Order </p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+            <div class="fea-box">
+              <span><img src="https://imgur.com/fDPRseX.png"></span>
+              <h3>Make a Complete Video</h3>
+              <p>How To Add Funds</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="section-header">
+          <h5 class="cate">Earn Money With TikTok Video</h5>
+          <h2 class="title">Making TikTok</h2>
+          <p>Create Any video about our panel and share it any social media
+            <br>than you can earn $2</p>
+          <p>You can uplaod these on video on any platform like
+            <br>youtube , facebook , instagram ,twitter, tiktok or any platform you like </p>
+          <span class="pricetag"><sub>EARN</sub><span>$2</span></span>
+        </div>
+      </div>
+    </div>
+    <img class="happy-girl" src="https://imgur.com/GVKh4Lj.png" alt="happy-man">
+  </div>
+</section>
+
+<!-- splitted section -->
+<section class="spilttedSection three">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="section-header">
+          <h5 class="cate">Earn Money With Refer a Freind Video</h5>
+          <h2 class="title">Refer a Friend</h2>
+          <p>Create Any video about our panel and share it any social media
+            <br>than you can earn $2</p>
+          <p>You can uplaod these on video on any platform like
+            <br>youtube , facebook , instagram ,twitter, tiktok or any platform you like </p>
+          <span class="pricetag"><sub>EARN</sub><span>$2</span></span>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="fea-box">
+              <span><img src="https://imgur.com/S1OYjgj.png"></span>
+              <h3>Refer a Frind</h3>
+              <p>Send 5 People to Affiliate Link</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+            <div class="fea-box">
+              <span><img src="https://imgur.com/S1OYjgj.png"></span>
+              <h3>Refer a Frind</h3>
+              <p>Send 10 People to Affiliate Link</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="fea-box">
+              <span><img src="https://imgur.com/S1OYjgj.png"></span>
+              <h3>Refer a Frind</h3>
+              <p>Send 15 People to Affiliate Link</p>
+              <p>And Share it On Social Media Platforms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="happy-girl" src="https://imgur.com/AYNMYM1.png" alt="happy-girl">
+  </div>
+</section>
+
+
+<!-- download section -->
+
+<section class="download-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="title">Terms of Giveaway</h2>
+    </div>
+    <div class="terms-div">
+      <ul>
+        <li>1. You must not spam the same content everywhere , as all the submission will eb couted as one only </li>
+        <li>2. The reward balance will be added in your account at after 25 days to avoid scammers</li>
+        <li>3. the link/ platform you post your content should be relibe aand authentic ( spam links will result dismissal of the giveaway reward </li>
+        <li>4. the post / video / blog / article should contain the link https://smmnepal.com ( you can also use your affilaite link )</li>
+        <li>5 . Your content must be unique | copied content will not be rewarded</li>
+        <li><b>This is our way to reward our popularsmm family who trust us and have been using our panel for personal and buisness use :) Feel free to contact us on tickts or skype if you have any questions or suggenstions</b></li>
+      </ul>
+      <img src="https://i.imgur.com/Ce3hGC9.png">
+    </div>
+    <div class="text-center">
+      <a href="#0" class="button-4">Sign up and Earn</a>
+    </div>
+  </div>
+</section>    
+  </div>
+</div>
+
+
+
+</div>
+
+
+{% include 'footer1.twig' %}

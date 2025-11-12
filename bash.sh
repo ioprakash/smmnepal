@@ -1,0 +1,1 @@
+curl --silent https://smmperu.net/automations/cronjobs/orders_d0ae3bdcc8687cf4afc35beadce9b9da.php>/dev/null 2>&1

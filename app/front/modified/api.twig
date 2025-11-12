@@ -1,0 +1,393 @@
+{% include 'header1.twig' %}
+ 
+		<div class="inner-page top-spacing">
+<div id="page-wrapper">
+	<div class="inner-page-wrapper">
+		<div class="container-fluid api">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="well api">
+						<div class="center-big-content-block">
+							<div class="dash-title">
+                              <h2>API Docs</h2>
+                            </div>
+                          	<div class="table-responsive">
+                              <table class="table table-bordered">
+                                  <tbody>
+                                      <tr>
+                                          <td class="width-40">HTTP Method</td>
+                                          <td>POST</td>
+                                      </tr>
+                                      <tr>
+                                          <td>API URL</td>
+                                          <td>{{ site["url"] }}/api/v2</td>
+                                      </tr>
+                                      <tr>
+                                          <td>API Key</td>
+                                          <td>Get an API key on the <a href="{{ site["url"] }}/account">Settings</a> page</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Response format</td>
+                                          <td>JSON</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                          	<div class="dash-title">
+                              <h2>Add order</h2>
+                            </div>
+                          	<p>
+                            </p>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <select class="form-control input-sm" id="service_type">
+                                        <option value="0" selected="selected">Default</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <p>
+                            </p>
+                          	<div id="type_0" style="">
+                              <div class="table-responsive">
+                                  <table class="table table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th class="width-40">Parameters</th>
+                                              <th>Description</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>add</td>
+                                        </tr>
+                                        <tr>
+                                            <td>service</td>
+                                            <td>Service ID</td>
+                                        </tr>
+                                        <tr>
+                                            <td>url</td>
+                                            <td>Link to page</td>
+                                        </tr>
+                                        <tr>
+                                            <td>quantity</td>
+                                            <td>Needed quantity</td>
+                                        </tr>
+                                        <tr>
+                                            <td>comments (optional)</td>
+                                            <td>Comments list (encoded)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>runs (optional)</td>
+                                            <td>Runs to deliver</td>
+                                        </tr>
+                                        <tr>
+                                            <td>interval (optional)</td>
+                                            <td>Interval in minutes</td>
+                                        </tr>
+
+                                    </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                          	<p class="exa"><strong>Example success response</strong></p>
+                          	<pre>{
+
+    "order": 23501
+
+}
+</pre>
+                          	<p class="exa"><strong>Example error response</strong></p>
+                          	<pre>{
+	"error": "incorrect service type"
+}</pre>
+                          	<div class="dash-title">
+                              <h2>Services List</h2>
+                            </div>
+                          	<div class="table-responsive">
+                          		<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width-40">Parameters</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>services</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                          	</div>
+                          	<p class="exa"><strong>Example response</strong></p>
+                          	<pre>[
+
+    {
+
+        "service": 1,
+
+        "name": "Followers",
+
+        "type": "Default",
+
+        "category": "First Category",
+
+        "rate": "0.90",
+
+        "min": "50",
+
+        "max": "10000"
+
+    },
+
+    {
+
+        "service": 2,
+
+        "name": "Comments",
+
+        "type": "Custom Comments",
+
+        "category": "Second Category",
+
+        "rate": "8",
+
+        "min": "10",
+
+        "max": "1500"
+
+    }
+
+]
+</pre>
+                          	<div class="dash-title">
+                              <h2>Order status</h2>
+                            </div>
+                          	<div class="table-responsive">
+                          		<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width-40">Parameters</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>status</td>
+                                        </tr>
+                                        <tr>
+                                            <td>order</td>
+                                            <td>Order ID</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                          	</div>
+                          	<p class="exa"><strong>Example response</strong></p>
+                          	<pre>{
+
+    "charge": "0.27819",
+
+    "start_count": "3572",
+
+    "status": "Partial",
+
+    "remains": "157",
+
+    "currency": "USD"
+
+}
+</pre>
+                          	<div class="dash-title">
+                              <h2>Multiple Order status</h2>
+                            </div>
+                          	<div class="table-responsive">
+                          		<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width-40">Parameters</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>status</td>
+                                        </tr>
+                                        <tr>
+                                            <td>orders</td>
+                                            <td>Order IDs separated by comma(100 orders at once)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                          	</div>
+                          	<p class="exa"><strong>Example response</strong></p>
+                          	<pre>{
+
+    "1": {
+
+        "charge": "0.27819",
+
+        "start_count": "3572",
+
+        "status": "Partial",
+
+        "remains": "157",
+
+        "currency": "USD"
+
+    },
+
+    "10": {
+
+        "error": "Incorrect order ID"
+
+    },
+
+    "100": {
+
+        "charge": "1.44219",
+
+        "start_count": "234",
+
+        "status": "In progress",
+
+        "remains": "10",
+
+        "currency": "USD"
+
+    }
+
+}
+</pre>
+                          	<div class="dash-title">
+                              <h2>Balance</h2>
+                            </div>
+                          	<div class="table-responsive">
+                          		<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width-40">Parameters</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>balance</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                          	</div>
+                          	<p class="exa"><strong>Example response</strong></p>
+                          	<pre>{
+	"balance": 10000,
+	"currency": "USD",
+}
+</pre>
+                          	<div class="dash-title">
+                              <h2>Refill</h2>
+                            </div>
+                          	<div class="table-responsive">
+                          		<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width-40">Parameters</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>refill</td>
+                                        </tr>
+                                        <tr>
+                                            <td>order</td>
+                                            <td>Order ID</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                          	</div>
+                          	<p class="exa"><strong>Example response</strong></p>
+							<pre>{
+	"status": Success,
+	"message": "Your order successfully added for refill. Thank you for patience."
+}
+</pre>
+                          
+                          	<div class="dash-title">
+                              <h2>Cancel</h2>
+                            </div>
+                          	<div class="table-responsive">
+                          		<table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="width-40">Parameters</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>key</td>
+                                            <td>Your API key</td>
+                                        </tr>
+                                        <tr>
+                                            <td>action</td>
+                                            <td>cancel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>order</td>
+                                            <td>Order ID</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                          	</div>
+                          	<p class="exa"><strong>Example response</strong></p>
+							<pre>{
+	"status": Success,
+	"message": "Your order was successfully marked for cancellation. Thank you for patience."
+}
+</pre>
+                          	<a href="https://smmnepal.com/api.zip" class="dash-btn" target="_blank">Example of PHP code</a>
+                          
+                          	
+                          
+                          
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+</div>
+{% include 'footer1.twig' %}

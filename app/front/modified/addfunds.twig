@@ -1,0 +1,1041 @@
+{% include 'header1.twig' %}
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+<style>
+	h4 {
+        font-size: 14px;
+        color: #3c4464;
+        font-weight: 700;
+    }
+  	hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+  	.well-head h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #3c4464;
+        border-bottom: 2px solid #eaf0f7;
+        padding-bottom: 22px;
+        position: relative;
+    }
+  	.well-head h4::after {
+        content: '';
+        position: absolute;
+        width: 60px;
+        height: 6px;
+        background-color: #9c21a4;
+        left: 15px;
+        bottom: -4px;
+        border-radius: 25px;
+    }
+  	.payment-desc-info {
+        border-left: 2px solid #3c4464;
+        margin-left: 20px;
+        list-style: none;
+    }
+  	.pay-info-wrap {
+        position: relative;
+    }
+  	.pay-info-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 100px;
+        border: 2px solid #3c4464;
+        position: absolute;
+        left: -64px;
+        top: 50px;
+    }
+  	.pay-info-icon-inner {
+        background-color: #ff772e;
+        color: #fff;
+        border: 6px solid #f2f2f2;
+        border-radius: 100px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+  	.pay-info-date p {
+        font-size: 10px;
+        color: #73778b;
+        margin-bottom: 0;
+    }
+  	.pay-info-date p span {
+        color: #ffa078;
+    }
+  	.pay-info-desc p {
+        font-size: 13px;
+        color: #abaeb8;
+        line-height: 15px;
+    }
+  	.border-solid {
+        border: 1px solid #ddd;
+  		border-radius: 4px;
+  		word-wrap: break-word;
+    }
+  
+  	/* new css*/
+  	
+  	label {
+        display: block;
+    }
+  	input:not([type="checkbox"]) {
+        width: 95%;
+        height: 40px;
+        border: 1px solid rgb(226, 222, 222);
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+  	#model-toggle{
+        display: none;
+        cursor: pointer;
+    }
+    #rani{
+        margin-top: 20px;
+    }
+    .model-btn{
+      cursor: pointer;
+      font-size: 22px;
+      color: gray;
+      float: right;
+      margin: 5px 15px 10px 0;
+
+    }
+
+    .model-content,.model-backdrop{
+        height: 0;
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+        cursor: pointer;
+        transition: opacity 0.2s ease-in;
+
+    }
+    .model-content{
+        margin-left: 220px;
+    }
+    .model-content h2{
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    }
+    .model-close{
+        color: #aaa;
+        background-color: white;
+        width: 25px;
+        height: 25px;
+        font-size: 27px;
+        text-align: center;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+
+    }
+    .model-close:hover{
+        color: #333;
+    }
+    .model-contain-btn{
+        color: white;
+        background-color: #3498db;
+        width: 50px;
+        height: 32px;
+        text-align: center;
+        font-size: 15px;
+        cursor: pointer;
+        padding-top: 10px;
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+
+    }
+    .model-contain-btn:hover{
+        background-color: #2980b9;
+    }
+    #model-toggle:checked ~ .model-backdrop{
+        background-color: rgb(0, 0 ,0 ,0.6);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.2s ease-in;
+
+    }
+    #model-toggle:checked ~ .model-content{
+        background-color: white;
+        width: 400px;
+        height: 400px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        position: fixed;
+        top: 20%;
+        left: calc(50% -200px);
+        z-index: 1000;
+        cursor: auto;
+        visibility: visible;
+        opacity: 1;
+        box-shadow: 0 3px 7px rgb(0, 0 ,0 ,0.6);
+    }
+  	.eg {
+        text-align: center width: 90px;
+        height: 30px;
+        margin-top: 25px;
+        margin: 40px 3px 0 3px;
+    }
+  	#tem {
+        width: 45%;
+        border: 1px solid gray;
+        font-weight: bold;
+        font-weight: 900;
+        font-size: 18px;
+        color: gray;
+  		display: inline-block;
+    }
+  	#showdollor {
+        width: 45%;
+        border: 1px solid gray;
+        font-weight: bold;
+        font-weight: 900;
+        font-size: 18px;
+        color: gray;
+  		display: inline-block;
+    }
+  	.data {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+		border-radius: 4px;
+  		margin-bottom: 20px;
+    }
+  	.sty {
+        text-align: center;
+    }
+  	.intro {
+        width: 98%;
+        height: 1200px;
+        border: 1px solid rgb(236, 235, 235);
+        border-radius: 3px;
+        background-color: rgb(236, 235, 235);
+        display: none;
+        box-shadow: 2px 3px 4px grey;
+    }
+  	.demo{
+        text-align: center;
+        height: 30px;
+        margin-top: 25px;
+        margin: 40px 3px 0 3px;
+    }
+  	.waw {
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        box-shadow: 5px 10px 10px gray;
+        border: 1px solid orange;
+        border-radius: 5px;
+    }
+  	.well input#order {
+        width: calc(100% - 30px);
+    }
+  	.form-group {
+        position: relative;
+    }
+  	.model-btn {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        margin: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px !important;
+        color: #ffa83d !important;
+    }
+  	div.icons {
+        text-align: center;
+    }
+  .nav.nav-pills.nav-tabs li a {
+	display: block;
+	width: 100%;
+	padding: 10px 13px;
+	box-shadow: 0 0 5px 0 #0000002b;
+	border-radius: 30px;
+	color: #212529;
+	background: #fff;
+	text-decoration: none;
+}
+
+  .nav.nav-pills.nav-tabs li {
+  	margin: 5px;
+	}
+  .pay-icon {
+	width: 30px;
+}
+    @media screen and (max-width: 768px){
+  .content-desktop {
+  display: none;
+	}
+  }
+  
+  @media (max-width: 550px){
+  
+  .nav.nav-pills.nav-tabs.neworder.media li {
+	width: 46%;
+}
+  .nav.nav-pills.nav-tabs li a {
+	font-size: 10px;
+}
+  }
+</style>
+<div id="page-wrapper">
+  <div class="inner-page-wrapper">
+    <div class="container-fluid neworder addfunds">
+      <div class="row">
+      	<div class="col-sm-8">
+      		<div class="row">
+              <div class="col-sm-12">
+                <div id="content-desktop">
+                  <div class="row stat">
+                      <div class="col-sm-4 stat-wrap">
+                          <div class="media">
+                              <div class="media-left">
+                                  <img class="media-object" src="https://i.postimg.cc/xCdkkZMt/Layer-111.png" alt="">
+                              </div>
+
+                              <div class="media-body">
+                                  <h4 class="media-heading">Total Orders</h4>
+                                  <!-- <p class="media-desc">19616926</p> -->
+                                  <p class="media-desc">{{ totalorders }}</p>
+
+
+                              </div>
+                              <div class="bottom-grad grad1 "></div>
+                          </div>
+                      </div>
+
+                      <div class="col-sm-4 stat-wrap">
+                          <div class="media">
+                              <div class="media-left">
+                                  <img class="media-object" src="https://i.postimg.cc/TwHKnccG/Layer-111231.png" alt="">
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">You Have Spent</h4>
+                                  <p class="media-desc">{{ user["spent"] }}</p>
+                              </div>
+                              <div class="bottom-grad grad2"></div>
+                          </div>
+                      </div>
+
+                      <div class="col-sm-4 stat-wrap reseller">
+
+                          <div class="media">
+                              <div class="media-left">
+                                  <img class="media-object" src="https://i.postimg.cc/zvbV7Rdh/Layer-111213231.png" alt="">
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">Resellers Program</h4>
+                                  <p class="media-desc" style="font-size: 17px;margin-bottom: 0;">Earn Money</p>
+                                  <small><a href="/giveaway">Click Here</a></small>
+                              </div>
+                              <div class="bottom-grad grad3"></div>
+                          </div>
+                          <!-- <a href="/giveaway" class="reseller-box">Get your own panel!</a> -->
+                      </div>
+                  </div>
+                  </div>
+              </div>
+              </div>
+          	</div>
+        
+        <div class="col-sm-4 content-desktop">
+         	<div class="row">
+        		<div class="col-sm-12">
+        			<div class="well text-center mb-4">
+                      <h4>We Accept The Following Payment Methods</h4>
+                      <p>If you want new payment gateways than contact us on Live Chat</p>
+                      <hr>
+                      <img class="paymentMethod-img" src="https://i.imgur.com/A3FBkkM.png">
+                    </div>
+
+
+<!-- div start -->
+
+
+                  	</div>
+                  	</div>
+          </div>
+        
+        
+         </div>
+      
+
+      
+          <div class="row">
+      	<div class="col-sm-8">
+            <div class="well">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item active">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fas fa-dollar-sign"></i> Add Funds</a>
+                  </li>
+                   <!-- <li class="nav-item">
+                      <a class="nav-link" id="manualFund-tab" data-toggle="tab" href="#manualFund" role="tab" aria-controls="manualFund" aria-selected="false"><i class="fad fa-hands-usd"></i> Manual Funds</a 
+                                     </li> -->
+                  <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-history"></i> Funds History</a>
+                  </li>
+              </ul>
+              
+              <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade in active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                      
+                      <form method="post" id="addfundsForm" action="/addfunds" enctype="multipart/form-data">
+
+											<div class="form-group">
+												<label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+												<select class="form-control" id="payment_method" name="payment_type">
+													{% for method in site["paymentMethods"] %}
+														<option value="{{ method['id'] }}">{{ method['name'] }}</option>
+													{% endfor %}
+												</select>
+											</div>
+											<div id="addfunds_fields"></div>
+									
+                          
+										</form>	
+										
+										<div id="formSubmitResponseMessage"></div>
+										<div id="formSubmitResponseContent"></div>
+                       
+
+                      </form>
+                      <div class="payment_logos">
+                        <!--  <img src="https://i.imgur.com/gFvw6eu.png">
+                          <img src="https://i.imgur.com/HOl4k5F.png">
+                          <img src="https://i.imgur.com/t6H7gzt.png">
+                          <img src="https://i.imgur.com/ap6MW0X.png">
+                          <img src="https://i.imgur.com/1RXoNBY.png">
+                          <img src="https://i.imgur.com/NtBdb4j.png">
+                          <img src="https://i.imgur.com/mju3p0X.png">
+                          <img src="https://i.imgur.com/Z7D7kyE.png">
+                          <img src="https://i.imgur.com/nwaDjEV.png">
+                          <img src="https://i.imgur.com/K4DrCwK.png">
+                          <img src="https://i.imgur.com/ydrj1gu.jpg">
+                          <img src="https://i.imgur.com/6XCAI6t.jpg">
+                          <img src="https://i.imgur.com/1LhBIN0.jpg">
+                          <img src="https://i.imgur.com/JwiZKxj.png">
+                          <img src="https://i.imgur.com/t2SS7H8.png">  -->
+
+<!-- logo -->
+                        
+                          <!-- <img src="https://i.imgur.com/UqA9fkd.png" class="demo">
+                              <img src="https://i.imgur.com/yH4VOi4.png" class="demo">
+                              <img src="https://i.imgur.com/BYoDkKd.png" class="demo">
+                              <img src="https://i.imgur.com/mF2gCzC.png" class="demo">
+                              <img src="https://i.imgur.com/C6UoaFR.png" class="demo">
+                              <img src="https://i.imgur.com/ba96Ykj.png" class="demo">
+                              <img src="https://i.imgur.com/LK5LsY0.png" class="demo">
+                              <img src="https://i.imgur.com/HOl4k5F.png" class="demo">
+                              <img src="https://i.imgur.com/tWrARcJ.png" class="demo">
+                              <img src="https://i.imgur.com/pkGviti.png" class="demo"> -->
+
+                      </div>
+                  </div>
+                  <!-- <div class="tab-pane fade" id="manualFund" role="tabpanel" aria-labelledby="manualFund-tab"> 
+                  					<form method="post" action="" id="fundsSend">
+                      <div class="siginInRow form-group">
+                      <center>  <label>This process Load Fund Time within 24 Hour</label>
+                        <br>No Any Extra Charges Deducted</center>
+                  
+                          <label>Method</label>
+                  
+                          <select class="nic form-control" id="subject">
+                                    <option value="Esewa">ESewa ( Minimum Rs.120 )</option>
+                                 <option value="Bank">Bank Deposit ( Minimum Rs.120 )</option>
+                                 <option value="Fonepay">Fone pay ( Minimum Rs.120 )</option>
+                                 <option value="Khalti">Khalti ( Minimum Rs.120 ) </option>
+                                 <option value="ImePay">IME Pay ( Minimum Rs.120 )</option>
+                                 
+                             </select>
+                  
+                      </div>
+                  
+                  
+                      <div class="select-content">
+                  
+                          <div class="data" id="Esewa">
+                  
+                              <div class="sty">
+                  
+                                
+                  <span style="color: grey; font-size: 25px;">Payment Details :-</span><br><div id="eSewaLogoSection"></div>
+                                      <br>
+                                      Esewa ID = smmnepal.com@gmail.com <br>
+                                      Esewa Name = SMM Nepal<br>
+                                      Note*= Enter Your Name on Remarks<br>
+                                      <img src="https://i.ibb.co/Q8qwZxM/smmnepal-esewa-qr.jpg" style="width: 350px; height: 420px; margin-top: 20px;">    
+                                    
+                                   <b>   <br><br>
+                                  First Pay on Esewa QR Code/ Esewa ID <br>
+                                      Fill Down Transaction Code in Box<br>
+                                      Enter Amount And click Submit <br>
+                                  
+                                  </b>
+                                  
+                                  <br>  
+                                  </div>
+                              </div>
+                  
+                  								    <div class="data" id="Bank" style="display:none;">
+                                  <div class="sty">
+                                      <h2 style="margin-top: 10px; color: #fa8231; font-size: 30px;"></h2>
+                  
+                  
+                  
+                                      <img src="https://i.imgur.com/eFv68dz.jpg" style="width: 350px; height: 420px; margin-top: 20px;">                        
+                                  </div>
+                              </div>
+                  
+                  
+                  
+                              <div class="data" id="Fonepay" style="display:none;">
+                                  <div class="sty">
+                  
+                  
+                                      <p style="margin-top: 15px; color: gray; font-size: 20px;">
+                                          
+                                      </p>
+                                      <img src="https://i.imgur.com/Bx0gSVx.jpg" style="width: 350px; height: 420px; margin-top: 20px;">
+                  
+                                  </div>             
+                              </div>
+                  
+                  
+                  
+                              <div class="data" id="Khalti" style="display:none;">
+                                  <div class="sty">
+                  
+                                      <p style="margin-top: 15px; color: gray; font-size: 20px;">
+                                          <span style="color: gray; font-size: 25px;">Payment Details By Khalti QR Scan Code :-</span><br>
+                                          <br>
+                                          Khalti ID Payment Details :-<br>
+                                          Khalti ID = 9880821785<br>
+                                          Khalti Name = Rajesh Prasad Shah<br>
+                                          Note*= Enter Your Name on Remarks
+                                      </p>
+                                      <img src="https://i.imgur.com/vPeLygB.jpg" style="width: 350px; height: 420px; margin-top: 20px;">
+                  
+                                  </div>
+                              </div>
+                  
+                  
+                  
+                              <div class="data" id="ImePay" style="display:none;">
+                                  <div class="sty">
+                  
+                                      <p style="margin-top: 15px; color: gray; font-size: 20px;">
+                                       
+                                          <br>
+                                          Ime Pay Payment Details :-<br>
+                                          Ime Pay ID = 9880821785<br>
+                                          Ime Pay Name = Rajesh Prasad Shah<br>
+                                          Note*= Enter Your Name on Remarks
+                                      </p>
+                                      <img src="https://i.imgur.com/Qakvt4S.jpg" style="width: 350px; height: 420px; margin-top: 20px;">
+                  
+                                  </div>               
+                              </div>
+                  
+                  
+                      </div>
+                  
+                  
+                  
+                      <div class="intro">
+                  
+                      </div>
+                  
+                  
+                      <div class="siginInRow form-group">
+                          <label>Transaction Code</label>
+                          <input type="text" name="txt" id="order" class="form-control">
+                  
+                          <input type="checkbox" id="model-toggle" style="display:none;">
+                          <label for="model-toggle" class="model-btn"> &#x1F6C8;</label>
+                          <div class="model-backdrop"></div>
+                          <div class="model-content">
+                              <label for="model-toggle" class="model-close">&times;</label>
+                              <h2>How to Find Transaction Code ?</h2>
+                              <p id="rani"><b><span style="color: orange; margin-bottom: 15px; ">Example:- </span></b> <br>
+                                  <img src="https://imgur.com/nkR2wLW.png" class="eg">
+                              </p>
+                              <label for="model-toggle" class="model-contain-btn">Ok</label>
+                          </div>
+                      </div>
+                  
+                  
+                  
+                      <div class="siginInRow form-group">
+                          <label>Amount</label>
+                          <b>
+                                      <input type="number" name="nepali" placeholder="NRS" id="tem" onkeyup="divi(this.value)"> =
+                                      <input type="number" name="dollor" placeholder="USD CURRENCY" id="showdollor" readonly>
+                                  </b>
+                      </div>
+                      <input type="hidden" name="_csrf"  value="fb9d96b138e84b0d89bfc512b36da5e6_84096260fb08a3f312d7e0f78987058f" />
+                  
+                      <div class="siginInRow">
+                          <button type="submit" class="dash-btn">Pay</button>
+                      </div>
+                  
+                      <div class="icons">
+                          <img src="https://i.imgur.com/UqA9fkd.png" class="demo">
+                          <img src="https://i.imgur.com/yH4VOi4.png" class="demo">
+                          <img src="https://i.imgur.com/BYoDkKd.png" class="demo">
+                          <img src="https://i.imgur.com/mF2gCzC.png" class="demo">
+                          <img src="https://i.imgur.com/C6UoaFR.png" class="demo">
+                          <img src="https://i.imgur.com/ba96Ykj.png" class="demo">
+                          <img src="https://i.imgur.com/LK5LsY0.png" class="demo">
+                          <img src="https://i.imgur.com/HOl4k5F.png" class="demo">
+                          <img src="https://i.imgur.com/tWrARcJ.png" class="demo">
+                          <img src="https://i.imgur.com/pkGviti.png" class="demo">
+                      </div>
+                  </form>
+                  </div> -->
+                  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="table-responsive"> 
+                      	<table class="table ">
+							<thead>
+								<tr>
+													<th>ID</th>
+													<th>Date</th>
+													<th>Method</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for payment in payments %}
+													<tr>
+														<td>{{ payment['id'] }}</td>
+														<td>{{ payment['date'] }}
+														</td>
+														<td>{{ payment['name'] }}</td>
+														<td>
+															{{ payment['amount'] }}
+														</td>
+													</tr>	{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				
+                      <!-- <div class="container1">
+                          <div class="row">
+                              <div class="col-sm-12">
+                                  <div class="well">
+                                      <div class="table-responsive">
+                                          <table class="table">
+                                              <thead>
+                                                  <tr>
+                                                      <th>ID</th>
+                                                      <th>Date</th>
+                                                      <th>Method</th>
+                                                      <th>Amount</th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                  <tr>
+                                                      <td>204375</td>
+                                                      <td><span class="nowrap">2021-05-25 14:38:09</span></td>
+                                                      <td>Child panel</td>
+                                                      <td>
+                                                          -10.00
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>184418</td>
+                                                      <td><span class="nowrap">2021-04-26 17:45:13</span></td>
+                                                      <td>Child panel</td>
+                                                      <td>
+                                                          -10.00
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>184416</td>
+                                                      <td><span class="nowrap">2021-04-26 17:42:06</span></td>
+                                                      <td>Bonus</td>
+                                                      <td>
+                                                          2.50
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>184415</td>
+                                                      <td><span class="nowrap">2021-04-26 17:42:04</span></td>
+                                                      <td>Payoneer ( 5% Bonus )</td>
+                                                      <td>
+                                                          50.00
+                                                      </td>
+                                                  </tr>
+                                                  <tr>
+                                                      <td>149881</td>
+                                                      <td><span class="nowrap">2021-03-02 16:40:08</span></td>
+                                                      <td></td>
+                                                      <td>
+                                                          0.01
+                                                      </td>
+                                                  </tr>
+                                              </tbody>
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+          	 <div class="row">
+          	              <!-- <div class="col-sm-12">
+          	                  <img class="img-responsive payop-img" src="https://i.imgur.com/d0pKQIu.png" at="payop"> 
+          	              </div> -->
+          	            </div>
+          	
+          	      	</div> 
+        <div class="col-sm-4">
+        	<!-- <div class="row">
+        		<div class="col-sm-12">
+        			<div class="well text-center mb-4">
+        	                      <h4>We Accept The Following Payment Methods</h4>
+        	                      <p>If you want new payment gateways than contact us on Live Chat</p>
+        	                      <hr>
+        	                      <img class="paymentMethod-img" src="https://i.imgur.com/A3FBkkM.png">
+        	                    </div> -->
+
+
+<!-- div start -->
+
+         <div class="well mb-3">
+                  	                      <div class="well-head">
+                  	                          <h4>HOW TO LOAD FUNDS</h4>
+                  	                      </div>
+                  	
+                  	  
+                  	<div class="dash-body">
+                  	<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">            
+                  	<div class="panel panel-default">
+                  	<div class="panel-heading" role="tab" id="headingOne">
+                  	<h4 class="panel-title">
+                  	<a role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+                  	<i class="fab fa-paypal"></i>  Esewa </a>
+                  	</h4>
+                  	</div>
+                  	<div id="collapseOne1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  	<div class="credit-card"><center>
+                  	  <img class="img-responsive" src="https://imgur.com/A3FBkkM.png" alt="credit-card"></center>
+                  	</div>
+                  	<div class="panel-body"> open a  <a href="/tickets"><strong> New Ticket </strong></a>   To Get More Information About Esewa. <ul>
+                  	<br>
+                  	<li> 50$ Minimum Payment!</li> <br>
+                  	 <li>No Bonus on Payment </li>
+                  	
+                  	</ul>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	<div class="panel panel-default">
+                  	<div class="panel-heading" role="tab" id="headingTwo">
+                  	<h4 class="panel-title">
+                  	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                  	<i class="far fa-credit-card"></i>  Esewa </a>
+                  	</h4>
+                  	</div>
+                  	<div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  	<div class="credit-card"><center>
+                  	  <img class="img-responsive" src="https://imgur.com/A3FBkkM.png" alt="credit-card"></center>
+                  	</div>               
+                  	<div class="panel-body"> open a  <a href="/tickets"><strong> New Ticket </strong></a>   To Get More Information About Esewa. <ul>
+                  	<br>
+                  	<li> 10$ Minimum Payment! <br>
+                  	 </li>
+                  	<li>
+                  	
+                  	</ul>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	<div class="panel panel-default">
+                  	<div class="panel-heading" role="tab" id="headingThree">
+                  	<h4 class="panel-title">
+                  	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree">
+                  	<i class="far fa-credit-card"></i>  Esewa </a>
+                  	</h4>
+                  	</div>
+                  	<div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                  	<div class="credit-card"><center>
+                  	  <img class="img-responsive" src="https://imgur.com/A3FBkkM.png" alt="credit-card"></center>
+                  	</div>
+                  	<div class="panel-body"> open a  <a href="/tickets"><strong> New Ticket </strong></a>   To Get More Information About Esewa Money. <ul>
+                  	<br>
+                  	<li> 10$ Minimum Payment! <br>
+                  	  </li>
+                  	<li>
+                  	
+                  	</ul>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	<div class="panel panel-default">
+                  	<div class="panel-heading" role="tab" id="headingfour">
+                  	<h4 class="panel-title">
+                  	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapsefour4" aria-expanded="false" aria-controls="collapsefour">
+                  	<i class="fab fa-cc-mastercard"></i>  Esewa </a>
+                  	</h4>
+                  	</div>
+                  	<div id="collapsefour4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
+                  	<div class="credit-card"><center>
+                  	  <img class="img-responsive" src="https://imgur.com/A3FBkkM.png" alt="credit-card"></center>
+                  	</div>
+                  	<div class="panel-body"> open a  <a href="/tickets"><strong> New Ticket </strong></a>   To Get More Information About Esewa. <ul>
+                  	<br>
+                  	<li> 10$ Minimum Payment! <br>
+                  	</li>
+                  	</ul>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	<div class="panel panel-default">
+                  	<div class="panel-heading" role="tab" id="headingFive">
+                  	<h4 class="panel-title">
+                  	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseFive5" aria-expanded="false" aria-controls="collapseFive">
+                  	<i class="fas fa-money-bill-wave"></i>  Esewa </a>
+                  	</h4>
+                  	</div>
+                  	<div id="collapseFive5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                  	<div class="credit-card"><center>
+                  	  <img class="img-responsive" src="https://imgur.com/A3FBkkM.png" alt="credit-card"></center>
+                  	</div>                
+                  	<div class="panel-body"> open a  <a href="/tickets"><strong> New Ticket </strong></a>   To Get More Information About Esewa. <ul>
+                  	<br>
+                  	<li> 10$ Minimum Payment!</li> <br>
+                  	 <li>No Bonus on Payment </li>
+                  	<li>
+                  	</ul>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	<div class="panel panel-default">
+                  	<div class="panel-heading" role="tab" id="headingSix">
+                  	<h4 class="panel-title">
+                  	<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapseSix6" aria-expanded="false" aria-controls="collapseSix">
+                  	<i class="fa fa-phone-square"></i>  Esewa </a>
+                  	</h4>
+                  	</div>
+                  	<div id="collapseSix6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                  	<div class="credit-card"><center>
+                  	  <img class="img-responsive" src="https://imgur.com/A3FBkkM.png" alt="credit-card"></center>
+                  	</div>
+                  	<div class="panel-body"> open a  <a href="/tickets"><strong> New Ticket </strong></a>   To Get More Information About Esewa Cash. <ul>
+                  	<br>
+                  	<li> 10$ Minimum Payment! <br>
+                  	  
+                  	
+                  	</li>
+                  	</ul>
+                  	</div>
+                  	</div>
+                  	</div>            
+                  	</div>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	</div>
+                  	
+                  	</div>
+                  	      </div>
+                  	    </div>
+                  	  </div> 
+<!-- </div> -->
+
+<script>
+        function filterButton(type) {
+            // Remove all options that don't match the data-type
+            $('#payment_type option').each(function() {
+             
+    			
+    //	if ($(this).val() != type) {
+   				 //	$(this).remove();
+    //	    }
+    //		else{
+    //		$(this).val();
+    //		}
+    
+    
+    
+    if ($(this).val() == type) {
+                $(this).prop('selected', true);
+            } else {
+                $(this).prop('selected', false);
+            }  
+    });
+       
+    
+      $('html, body').animate({
+                scrollTop: $('#myTab').offset().top- 100
+            }, 1000); // 1000 milliseconds = 1 second for scroll animation
+    
+    
+        setTimeout(function() {
+            $('#payment_type option').trigger('change');
+        }, 1000); // 1500 milliseconds = 1.5 seconds
+    
+        }
+    </script>
+<script>
+  	$(document).ready(function(){
+        $("#subject").on('change',function(){
+            $(".data").hide();
+            $("#" + $(this).val()).fadeIn(700);
+        }).change();  		
+    });
+  
+  	function divi(value){
+       var x=value/120;
+       document.getElementById("showdollor").value=x;
+    }
+    function passvalue(){
+       var rkm= document.getElementById('showdollor').value;
+       //  var order=document.getElementById('order').value;
+        localStorage.setItem("textvalue",rkm);
+       // localStorage.setItem("textvalue",order);
+       return false;
+    }
+  
+  
+  
+  	$("#fundsSend").submit(function(e){
+  		localStorage.clear();
+  		console.log("testing");
+  		var ticketSubject = $("#subject").find(":selected").val();
+  		console.log(ticketSubject);
+  		var transactionNo = document.getElementById("order").value;
+        console.log(transactionNo);
+        var nepAmount = document.getElementById("tem").value;
+        console.log(nepAmount);
+        var usdAmount = document.getElementById("showdollor").value;
+        console.log(usdAmount);  
+  		localStorage.setItem("uniqueFlag", "true");
+  		localStorage.setItem("payMethod", ticketSubject);
+  		console.log(localStorage.getItem("payMethod")); 
+  		localStorage.setItem("transNo", transactionNo);
+  		localStorage.setItem("nepaAmount", nepAmount);
+  		localStorage.setItem("usdAmount", usdAmount);		
+        console.log(localStorage);  
+  		//this.target = '_blank';
+  		//window.open("","_self")  		
+    });
+  	
+  	var uFlag = localStorage.getItem("uniqueFlag");
+  	if(uFlag == "true") {
+  //location.href = "https://smmnepal.com/tickets";
+  	}
+
+
+
+
+</div>
+
+			{% include 'footer1.twig' %}
+
+ <script type="text/javascript" src="/public/global/qri1ac173hshc2hdjc.js">
+</script>
+			<script>
+				var paymentMethods = {{ site["paymentMethodsJSON"] }};
+			</script>
+			<script>
+				const addfundsRoute = "/addfunds";
+function addfundsInit() {
+var addfundsForm = $("#addfundsForm");
+var fields = $("#addfunds_fields");
+var selectedMethod = $("#payment_method").val();
+var instructions = paymentMethods[selectedMethod][0].instructions;
+$.ajax({
+url: addfundsRoute,
+data: "action=getForm&selectedMethod=" + selectedMethod,
+type: "POST",
+success: function (json) {
+if (json.success == true) {
+if (instructions.length > 0) {
+var methodInstruction = '<div class="form-group"><label class="control-label">Instructions</label><div class="panel-body border-solid border-rounded">' + instructions + '</div></div>';
+} else {
+var methodInstruction = "";
+} fields.html(methodInstruction + json.content);
+extraFeeInit(selectedMethod);
+}
+}
+});
+}
+
+function extraFeeInit(method) {
+var fee = parseFloat(paymentMethods[method][0].fee).toFixed(2);
+var fields = $("#fee_fields");
+if (fee > 0) {
+fields.html('<div class="form-group"><label class="control-label">Extra fee</label><input type="text" class="form-control" id="methodExtraFee" disabled value="0.00"/></div><div class="form-group"><label class="control-label">Total Amount</label><input type="text" id="totalAmount" class="form-control" disabled value="0.00" /></div>');
+}
+}
+function preparePrice(t) {
+n = 2;
+var r = (t = $.trim(t.toString().replace(",", "."))).split(".");
+return void 0 !== r[1] && (r[1] = r[1].replace(/0+$/g, ""), r[1].length > n && (n = 2 < r[1].length ? 2 : r[1].length)),
+1e3 <= (t =( t = parseFloat(t)).toFixed(n)) && (t = t.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1" + "")),
+t = t.toString().replace(/\.(\d+)$/g, "." + "$1");
+return t.toFixed(n)
+}
+$(document).ready(function () {
+$(document).on("keyup", "#paymentAmount", function () {
+var selectedMethod = $("#payment_method").val();
+var amount = parseFloat($(this).val());
+var feePercentage = parseFloat(paymentMethods[selectedMethod][0].fee);
+var feeInput = $("#methodExtraFee");
+var totalAmountInput = $("#totalAmount");
+var fee = amount * (feePercentage / 100);
+feeInput.val(preparePrice(fee));
+totalAmountInput.val(preparePrice(amount + fee));
+});
+addfundsInit();
+});
+$("#payment_method").change(function () {
+addfundsInit();
+});
+
+$("#addfundsForm").submit(function (e) {
+    e.preventDefault();
+    var formData = new FormData(this); // This will include all form fields, including files
+       for (var pair of formData.entries()) {
+        console.log(pair[0] + ': ', pair[1]);
+    }
+    $.ajax({
+        url: addfundsRoute,
+        data: formData,
+        type: "POST",
+        processData: false,  // Important for FormData
+        contentType: false,  // Important for FormData
+        success: function (json) {
+            if (json.success == true) {
+                var msgDiv = $("#formSubmitResponseMessage");
+                msgDiv.html('<div class="alert alert-success alert-dismissible fade show mt-2" role="alert">' + json.message + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
+                var contentDiv = $("#formSubmitResponseContent");
+                contentDiv.html(json.content);
+            } else {
+                var msgDiv = $("#formSubmitResponseMessage");
+                msgDiv.html('<div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">' + json.message + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>');
+            }
+        }
+    });
+});
+			</script>
+

@@ -1,0 +1,24 @@
+
+{% block content %}
+    <h2>Refund History</h2>
+
+    {% if refunds is empty %}
+        <p>No refund history found.</p>
+    {% else %}
+        <table border="1">
+            <tr>
+                <th>Order ID</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Refund Date</th>
+            </tr>
+            {% for refund in refunds %}
+                <tr>
+                    <td>{{ refund.order_id }}</td>
+                    <td>{{ refund.order_charge }}</td>
+                    <td>{{ refund.status }}</td>
+                    <td>{{ refund.order_create }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+   

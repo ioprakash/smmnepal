@@ -1,0 +1,1075 @@
+{% include 'header.twig' %}
+
+<!-- hero section -->
+<section class="heroSec">
+  <div class="icon-bubbles"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        
+        <h1>{{ site["site_name"] }}</h1>
+        <h2> {{ site["site_name"] }} - Best and Cheapest Wholeseller SMM Panel</h2>
+        <p>SMM Panel and 100% High Quality for all social networks. You are Own the Cheap Smm panel. Our SMM reseller panel benefit your brand</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-cont">
+          {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+                            <form class="component_form_group component_checkbox_remember_me" method="post" action="/">
+            
+            <div class="capsole-cont">
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <input type="text" name="username" class="form-control" value="{{ data["username"] }}" placeholder="Username">
+                    <p class="help-block help-block-error"></p>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="form-group">
+                     <input type="password" name="password" class="form-control"  placeholder="Password">
+                    <p class="help-block help-block-error"></p>
+                  </div>
+                </div>
+          {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}
+                <div class="col-sm-4">
+                  <input type="hidden" name="login_btn" value="Login">
+                  <button type="submit" name="login_btn" class="btn btn-primary">Log In <i class="fas fa-paper-plane"></i></button>
+                </div>
+              </div>
+			  
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="checkbox">
+                  <label>
+                    <input name="remember_me" id="remembered" value="1" type="checkbox"> Remember me
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center">
+              	<div class="">
+                  <span>Do not have an account?</span>
+                  <a href="signup">Register Now </a>
+                </div>
+              </div>
+              <div class="col-sm-4 text-right">
+                <div class="forgetlast">
+                  <a href="reset-password" class="forget-pass">Forgot Password?</a>
+                </div>
+              </div>
+            </div>
+			
+            <div class="row">
+              <div class="col-sm-12 ">
+                
+              </div>
+            </div>  
+{% if google_login_content %} 
+			<div class="row capsole-cont" style="background-color: transparent;">
+					 
+				<div class="col-md-12">
+					<div class="btn btn-block btn-primary custom-btn" id="allow_google_login_div" onclick="window.location.href='?login-with-google'"><i class="fab fa-google"></i> Signin with Google
+					</div>
+				</div>
+				 
+			
+		  </div>
+{% endif %}		  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shape shape-btm">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path class="shape-fill" d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- social section -->
+<section class="socialSec">
+	<div class="conatiner-fluid">
+	  <div class="social-icons-slider">
+		<div><img src="https://imgur.com/w4roB3s.png"></div>
+		<div><img src="https://imgur.com/kmSJ5GB.png"></div>
+		<div><img src="https://imgur.com/gjkzXpT.png"></div>
+		<div><img src="https://imgur.com/ZHeL4tv.png"></div>
+		<div><img src="https://imgur.com/YLJf44W.png"></div>
+		<div><img src="https://imgur.com/gOkrmGF.png"></div>
+		<div><img src="https://imgur.com/GcYSsyN.png"></div>
+		<div><img src="https://imgur.com/KELT27U.png"></div>
+		<div><img src="https://imgur.com/xfxdlAY.png"></div>
+		<div><img src="https://imgur.com/BK1Z6gt.png"></div>
+		<div><img src="https://imgur.com/X5q2ppJ.png"></div>
+		<div><img src="https://imgur.com/rFIm8Xn.png"></div>
+		<div><img src="https://imgur.com/raHpx78.png"></div>
+		<div><img src="https://imgur.com/6Mz9FCS.png"></div>
+		<div><img src="https://imgur.com/ItCb94m.png"></div>
+		<div><img src="https://imgur.com/j4ICYKv.png"></div>
+		<div><img src="https://imgur.com/vwYxBkw.png"></div>
+		<div><img src="https://imgur.com/ZjRBrpK.png"></div>
+		<div><img src="https://imgur.com/PSMW2fd.png"></div>
+		<div><img src="https://imgur.com/fqsSIWH.png"></div>
+		<div><img src="https://imgur.com/w4roB3s.png"></div>
+		<div><img src="https://imgur.com/kmSJ5GB.png"></div>
+		<div><img src="https://imgur.com/gjkzXpT.png"></div>
+		<div><img src="https://imgur.com/ZHeL4tv.png"></div>
+		<div><img src="https://imgur.com/YLJf44W.png"></div>
+		<div><img src="https://imgur.com/gOkrmGF.png"></div>
+		<div><img src="https://imgur.com/GcYSsyN.png"></div>
+		<div><img src="https://imgur.com/KELT27U.png"></div>
+		<div><img src="https://imgur.com/xfxdlAY.png"></div>
+		<div><img src="https://imgur.com/BK1Z6gt.png"></div>
+		<div><img src="https://imgur.com/X5q2ppJ.png"></div>
+		<div><img src="https://imgur.com/rFIm8Xn.png"></div>
+		<div><img src="https://imgur.com/raHpx78.png"></div>
+		<div><img src="https://imgur.com/6Mz9FCS.png"></div>
+		<div><img src="https://imgur.com/ItCb94m.png"></div>
+		<div><img src="https://imgur.com/j4ICYKv.png"></div>
+		<div><img src="https://imgur.com/vwYxBkw.png"></div>
+		<div><img src="https://imgur.com/ZjRBrpK.png"></div>
+		<div><img src="https://imgur.com/PSMW2fd.png"></div>
+		<div><img src="https://imgur.com/fqsSIWH.png"></div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- counters section -->
+  <section class="countersSec">
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-3">
+		  <div class="singleCount">
+			<div class="icon">
+			  <i class="fal fa-box-check"></i>
+			</div>
+			<div class="text">
+			  <h4 class="counter">978920</h4>
+			  <p>Completed Order</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-3">
+		  <div class="singleCount">
+			<div class="icon">
+			  <i class="fal fa-heart"></i>
+			</div>
+			<div class="text">
+			  <h4 class="counter">38560</h4>
+			  <p>Happy Clients</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-3">
+		  <div class="singleCount">
+			<div class="icon">
+			  <i class="fal fa-life-ring"></i>
+			</div>
+			<div class="text">
+			  <h4 class="counter">12867</h4>
+			  <p>Total Service</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-3">
+		  <div class="singleCount">
+			<div class="icon">
+			  <i class="fal fa-crown"></i>
+			</div>
+			<div class="text">
+			  <h4 class="counter">1</h4>
+			  <p>Ranking in Market</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- about section -->
+  <section class="aboutSec">
+	<div class="container">
+	  <div class="row align-items-center">
+		<div class="col-sm-6">
+		  <img src="https://imgur.com/KgLbMZB.png" style="filter: drop-shadow(-5px 5px 5px #00000029);">
+		  <div class="experience">
+			<img src="https://imgur.com/c7UVL4F.png">
+			<span><span>25+</span> Year of Experience</span>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+		  <div class="section-header">
+			<h3>About Us</h3>
+			<h2>Digital Marketing Problems and Their Best Solutions</h2>
+		  </div>
+		  <p><b>It's time to put an end to the frustration and confusion of small business digital marketing.</b></p>
+		  <p>On the other hand we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment so blinded by desire.and demoralized by the charms of pleasure of the moment.</p>
+		  <a class="custom-btn" href="#0">Get Started</a>
+		</div>
+	  </div>
+	</div>
+	<img class="p-a element1" src="https://imgur.com/RHXaNNs.png">
+  </section>
+  
+  <!-- how it works section -->
+  <section class="howItWorksSec">
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			<h3>How it works?</h3>
+			<h2>By following the processes below you can make any order you want.</h2>
+			<p>It is about us being able to offer help with the branding campaign, product presentation, and advertisement running across social media.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="col-sm-3">
+		  <div class="img-cont">
+			<img src="https://imgur.com/OU4SSzV.png">
+			<span>1</span>
+		  </div>
+		  <div class="steps-desc">
+			<h2>Register & log in</h2>
+			<p>Creating an account is the first step, then you need to log in.</p>
+			<a href="/signup" class="custom-btn">Sign Up</a>
+		  </div>
+		</div>
+		<div class="col-sm-3">
+		  <div class="img-cont">
+			<img src="https://imgur.com/OU4SSzV.png">
+			<span>2</span>
+		  </div>
+		  <div class="steps-desc">
+			<h2>Add funds</h2>
+			<p>Next, pick a payment method and add funds to your account.</p>
+			<a href="/signup" class="custom-btn">Add Funds</a>
+		  </div>
+		</div>
+		<div class="col-sm-3">
+		  <div class="img-cont">
+			<img src="https://imgur.com/OU4SSzV.png">
+			<span>3</span>
+		  </div>
+		  <div class="steps-desc">
+			<h2>Select a service</h2>
+			<p>Select the services you want and get ready to receive more publicity.</p>
+			<a href="/signup" class="custom-btn">Services</a>
+		  </div>
+		</div>
+		<div class="col-sm-3">
+		  <div class="img-cont">
+			<img src="https://imgur.com/OU4SSzV.png">
+			<span>4</span>
+		  </div>
+		  <div class="steps-desc">
+			<h2>Enjoy superb results</h2>
+			<p>You can enjoy incredible results when your order is complete.</p>
+			<a href="/signup" class="custom-btn">Explore</a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- features section -->
+  <section class="featureSec" id="feature">
+	<div class="shape-container">
+	  <div class="bg_img feature-background"></div>
+	  <div class="feature-top-shape">
+		<img src="https://imgur.com/U0aaTZM.png">
+	  </div>
+	</div>
+	<div class="topper-feature">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-sm-6">
+			<div class="section-header">
+			  <h3>Explore Amazing Features</h3>
+			  <h2>That will boost your productivity</h2>
+			  <p>With our wide range of features, you can create a custom app no matter what your niche: restaurant, Realtor, small business, rock band, and all the rest!</p>
+			  <div class="downarrow">
+				<img src="https://imgur.com/85b5ZKl.png">
+			  </div>
+			</div>
+		  </div>
+		  <div class="col-sm-6">
+			<a href="https://www.youtube.com/channel/UCnY-042Tx6O2VIfn7XIBiqg" target="_blank" class="feature-video-area">
+			  <div class="thumb">
+				<img src="https://imgur.com/Sha7yWP.png">
+			  </div>
+			  <div class="button-area">
+				<h4 class="title">
+				  Watch Videos
+				</h4>
+				<div class="video-button">
+				  <i class="fad fa-play"></i>
+				</div>
+			  </div>
+			</a>
+		  </div>
+		</div>
+	  </div>
+	</div>        
+	<div class="amazing-feature-bottom">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-sm-8">
+			<div class="section-header">
+			  <h3>A Collection of Prominent Features</h3>
+			  <h2>Delivering Exceptional User Experiences.</h2>
+			  <p>Numerous features make it possible to customize the system in accordance with all your needs.</p>
+			</div>
+		  </div>
+		  <div class="col-sm-12 mb-30-none">
+			<div class="row">
+			  <div class="col-sm-3">
+				<div class="am-item">
+				  <div class="am-thumb">
+					<img src="https://imgur.com/sWNNmIV.png">
+				  </div>
+				  <div class="am-content">
+					<h5 class="title">Free Trial</h5>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-sm-3">
+				<div class="am-item active">
+				  <div class="am-thumb">
+					<img src="https://imgur.com/7BcjaKl.png">
+				  </div>
+				  <div class="am-content">
+					<h5 class="title">Secure Data</h5>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-sm-3">
+				<div class="am-item">
+				  <div class="am-thumb">
+					<img src="https://imgur.com/qxWfNBZ.png">
+				  </div>
+				  <div class="am-content">
+					<h5 class="title">Quick Access</h5>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-sm-3">
+				<div class="am-item">
+				  <div class="am-thumb">
+					<img src="https://imgur.com/n1eyfUk.png">
+				  </div>
+				  <div class="am-content">
+					<h5 class="title">24h Support</h5>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- features two section -->
+  <section class="featuresTwoSec">
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			<h3>Features Of</h3>
+			<h2>Our SMM Panel </h2>
+			<p>It is about us being able to offer help with the branding campaign, product presentation, and advertisement running across social media.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="col-sm-6">
+		  <div class="single-fea">
+			<div class="num">
+			  01
+			</div>
+			<div class="desc">
+			  <h3>Fast SMM panel</h3>
+			  <p>brings you likes and views on your company's profile posts so it will look more interesting, triggering a response from the audience as well as customers.</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+		  <div class="single-fea">
+			<div class="num">
+			  02
+			</div>
+			<div class="desc">
+			  <h3>Cheap SMM panel </h3>
+			  <p>allows you to increasethe engagement of your brand on various social media platforms, Facebook, Twitter, etc. and helps to reach a broader target audience.</p>
+			</div>
+		  </div>
+		</div>          
+		<div class="col-sm-6">
+		  <div class="single-fea">
+			<div class="num">
+			  03
+			</div>
+			<div class="desc">
+			  <h3>The biggest benefits</h3>
+			  <p>is that {{ site["site_name"] }} promotes your business effectively with less timeand friendly budget.</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+		  <div class="single-fea">
+			<div class="num">
+			  04
+			</div>
+			<div class="desc">
+			  <h3>Once your business</h3>
+			  <p>profile gain popularity on social media, it easilygets recognized in the market</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+		  <div class="single-fea">
+			<div class="num">
+			  05
+			</div>
+			<div class="desc">
+			  <h3>With 24-hour</h3>
+			  <p>customer support service by {{ site["site_name"] }},you don't have to worry aboutmarketing of your business.</p>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-6">
+		  <div class="single-fea">
+			<div class="num">
+			  06
+			</div>
+			<div class="desc">
+			  <h3>Best SMM panel</h3>
+			  <p>provides, positive comments and reviewsto make it more noticeable among the audience.</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<img class="p-a element2" src="https://imgur.com/k7ldZXF.png">
+  </section>
+  
+  
+  
+  
+  <!-- marketing section -->
+  <section class="marketingSection">
+	<div class="container">
+	  <div class="row align-items-center">
+		<div class="col-sm-6">
+		  <div class="section-header">
+			  <h3>Marketing with</h3>
+			  <h2>{{ site["site_name"] }}</h2>                
+		  </div>
+		  <p><b>To make your brands stand out in the modern competitive market is extremely difficult.Ineffective marketing doesn't generate revenue in the least.</b></p>
+		  <p>{{ site["site_name"] }} is the cheapest SMM panel will provide you with the effective marketing services.You require marketing platforms to succeed in your customers. All the services, including likes, views, shares and everything is organic and from real human accounts. Getting engagement from real people helps you boost your insights. We don’t compromise on quality and provide service from real accounts.</p>
+		  <div class="lists">
+			<ul>
+			  <li><p><i class="fas fa-play"></i>Youtube Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>Instagram Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>Facebook Services In Cheap Price</p></li>
+			</ul>
+			<ul>
+			  <li><p><i class="fas fa-play"></i>Twitter Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>TikTok Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>Spotify Services In Cheap Price</p></li>
+			</ul>
+		  </div>
+		  <a class="custom-btn" href="#0">Get Started</a>
+		</div>
+		<div class="col-sm-6">
+		  <img src="https://i.imgur.com/9tISr2b.png" alt="marketing1-girl">
+		</div>
+	  </div>
+	</div>
+	<img class="p-a element3" src="https://imgur.com/BMUa5C3.png" alt="loud-speaker">
+  </section>
+  
+  <!-- what we offer section -->
+  <section class="whatWeOfrSec">
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			<h3>What We Offer</h3>
+			<h2>As a company </h2>
+			<p>It is about us being able to offer help with the branding campaign, product presentation, and advertisement running across social media. We provide guaranteed service on our website SMM server. All the service will be no drop service. If any of the service gets dropped, we will provide a refill for that service without any charges. That only happens if you get the best services for your Social Media Accounts</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row align-items-center">
+		<div class="col-sm-4">
+		  <div class="box">
+			<div class="count">
+			  01
+			</div>
+			<div class="desc">
+			  <h3>Search Engine Optimization</h3>
+			  <p>Get more targeted visitors on you website with fast and effective strategies</p>
+			</div>
+			<div class="icon">
+			  <i class="far fa-search"></i>
+			</div>
+		  </div>
+		  <div class="box">
+			<div class="count">
+			  03
+			</div>
+			<div class="desc">
+			  <h3>Social Media Strategy</h3>
+			  <p>Grow your brand on social media with advance , and secure way.</p>
+			</div>
+			<div class="icon">
+			  <i class="far fa-search"></i>
+			</div>
+		  </div>
+		  <div class="box">
+			<div class="count">
+			  05
+			</div>
+			<div class="desc">
+			  <h3>Customer support</h3>
+			  <p>Get 24/7 customer support services and proper view of your campion.</p>
+			</div>
+			<div class="icon">
+			  <i class="far fa-search"></i>
+			</div>
+		  </div>
+		</div>
+		<div class="col-sm-4">
+		  <img src="https://i.imgur.com/fCsRfyP.png" alt="what-we-offer">
+		</div>
+		<div class="col-sm-4">
+		  <div class="box">
+			<div class="count">
+			  02
+			</div>
+			<div class="desc">
+			  <h3>Online Media Management</h3>
+			  <p>Handles your online presence on social media platforms like Facebook, Instagram...</p>
+			</div>
+			<div class="icon">
+			  <i class="far fa-search"></i>
+			</div>
+		  </div>
+		  <div class="box">
+			<div class="count">
+			  04
+			</div>
+			<div class="desc">
+			  <h3>Reporting & Analysis</h3>
+			  <p>Get complete reports and analysis you’re your campion .with audience activity.</p>
+			</div>
+			<div class="icon">
+			  <i class="far fa-search"></i>
+			</div>
+		  </div>
+		  <div class="box">
+			<div class="count">
+			  06
+			</div>
+			<div class="desc">
+			  <h3>Penalty Recovery</h3>
+			  <p>Ourservice is designed to find out what went wrong, then fix it. So you get your website traffic.</p>
+			</div>
+			<div class="icon">
+			  <i class="far fa-search"></i>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- marketing section -->
+  <section class="marketingSection">
+	<div class="container">
+	  <div class="row align-items-center">          
+		<div class="col-sm-6">
+		  <img src="https://i.imgur.com/9tISr2b.png" alt="marketing1-girl">
+		</div>
+		<div class="col-sm-6">
+		  <div class="section-header">
+			  <h3>Marketing with</h3>
+			  <h2>{{ site["site_name"] }}</h2>                
+		  </div>
+		  <p><b>To make your brands stand out in the modern competitive market is extremely difficult.Ineffective marketing doesn't generate revenue in the least.</b></p>
+		  <p>{{ site["site_name"] }} Panel is the cheapest SMM panel will provide you with the effective marketing services.You require marketing platforms to succeed in your customers. All the services, including likes, views, shares and everything is organic and from real human accounts. Getting engagement from real people helps you boost your insights. We don’t compromise on quality and provide service from real accounts.</p>
+		  <div class="lists">
+			<ul>
+			  <li><p><i class="fas fa-play"></i>Youtube Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>Instagram Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>Facebook Services In Cheap Price</p></li>
+			</ul>
+			<ul>
+			  <li><p><i class="fas fa-play"></i>Twitter Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>TikTok Services In Cheap Price</p></li>
+			  <li><p><i class="fas fa-play"></i>Spotify Services In Cheap Price</p></li>
+			</ul>
+		  </div>
+          <a class="custom-btn" href="/Signup">Get Started</a>
+		</div>
+	  </div>
+	</div>
+	<img class="p-a element3" src="https://imgur.com/BMUa5C3.png" alt="loud-speaker">
+	<img class="p-a element4" src="https://imgur.com/RHXaNNs.png">
+  </section>
+  
+  <!-- what is panel -->
+<section class="whatIsSmmPanel">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="section-header">
+            <h3>Common Question</h3>
+            <h2>What is smm panel?</h2>
+            <p>SMM Panel meaning is Cheapest SMM and SEO Services Reseller Panel Script or website, where People Buy-Sell Social Media Marketing Service Such as Facebook Fans, Twitter devotees, Instagram Followers, YouTube watch time Views, Website Traffic, tiktok likes, and more significant associations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="box">
+          <h3><i class="far fa-thumbs-up"></i> Best smm panel</h3>
+          <p>There are seven characteristics to find a Best smm panel.</p>
+          <ul>
+            <li>API support for panel owners and Individuals for Automatic Orders.</li>
+            <li>Must Have cancel and refill button for customers, Customers Must have freedom to cancel and refill Orders.</li>
+            <li>The panel which is shown How many hours and minutes to completed an Orders.</li>
+            <li>The best panel always provide Super Instant customers support, Provide 24/7 Customers Help.</li>
+            <li>Every services must have a good descriptions for customers, All Customers must Understand Services, How its work.</li>
+            <li>Best panel always active popular payment gateway for Shopping Services, Like Carding, PayPal and More International Payment.</li>
+            <li>Good panel always have straightforward Terms of Service and Refund policy with Money back guarantee.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="box">
+          <h3><i class="far fa-baby"></i> What is Child smm panel?</h3>
+          <p>Child panel is panel which may be connected only to {{ site["site_name"] }}. It cost $25 per month without monthly orders limit. You Can Resell Our SMM services by Your Child panel to Your Customers. It is fully white-label so you may sell it as panel service for your customers. Just spent Monthly $50 and become a New SMM Panel Owner and Start Make Money Online.</p>
+          <ul>
+            <li>Import all {{ site["site_name"] }} Services.</li>
+            <li>Set Your Own Prices with Percentage.</li>
+            <li>All kinds of Currency Support.</li>
+            <li>Add, edit, Remove, enable, and disable services.</li>
+            <li>Activate Own Payment Gateway.</li>
+            <li>Receive payment directly from customers.</li>
+            <li>All admin Panel features and more.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- why choose section -->
+  <section class="whyPeopleChoose">
+	<div class="p-a shape-cont top-shape1">
+	  <svg id="hill-side-soft-off" style="fill:#ffffff; height:100px;" preserveAspectRatio="none" viewBox="0 0 1442 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		  <path class="divider-color" d="M1442,30.5019121 L1442,100.654403 L0,100.654403 C572.295431,33.9877365 935.145886,0.654403168 1088.55136,0.654403168 C1162.74657,0.654403168 1280.56278,10.6035728 1442,30.5019121 Z" id="hill-side-soft-off" transform="translate(721.000000, 50.654403) scale(1, -1) translate(-721.000000, -50.654403) "></path>
+	  </svg>
+	</div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			  <h3>Some Best Reasons that</h3>
+			  <h2>Why Choose {{ site["site_name"] }}?</h2>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row align-items-center">
+		<div class="col-sm-6">            
+		  <div class="single-fea">
+			<div class="num">
+			  01
+			</div>
+			<div class="desc">
+			  <h3>Organic Service</h3>
+			  <p>{{ site["site_name"] }} provides organic Services. All the services, including likes, views, shares and everything is organic and from real human accounts. Getting engagement from real people helps you boost your insights. We don’t compromise on quality and provide service from real accounts.</p>
+			</div>
+		  </div>
+		  <div class="single-fea">
+			<div class="num">
+			  02
+			</div>
+			<div class="desc">
+			  <h3>Guaranteed Service</h3>
+			  <p>We provide guaranteed service on our website SMM server. All the service will be no drop service. If any of the service gets dropped, we will provide a refill for that service without any charges. That only happens if you get the best services for your Social Media Accounts. Read our Terms of Service</p>
+			</div>
+		  </div>
+		  <div class="single-fea">
+			<div class="num">
+			  03
+			</div>
+			<div class="desc">
+			  <h3>Customer Support</h3>
+			  <p>We are available 24/7 for your Support. We have a very responsive customer support team that makes sure non-query gets ignored. You can contact us anytime with the live chat option and you can also drop us an email through the form on the Contact page. Learn more About our Business.</p>
+			</div>
+		  </div>
+		  <a class="custom-btn" href="#0">Get Started</a>
+		</div>
+		<div class="col-sm-6">
+		  <img src="https://i.imgur.com/kHjKkwG.png" alt="marketing1-girl">
+		</div>
+	  </div>
+	</div>
+	<div class="p-a shape-cont bottom-shape1">
+	  <svg id="hill-side-soft-off" style="fill:#ffffff; height:100px;" preserveAspectRatio="none" viewBox="0 0 1442 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		  <path class="divider-color" d="M1442,30.5019121 L1442,100.654403 L0,100.654403 C572.295431,33.9877365 935.145886,0.654403168 1088.55136,0.654403168 C1162.74657,0.654403168 1280.56278,10.6035728 1442,30.5019121 Z" id="hill-side-soft-off" transform="translate(721.000000, 50.654403) scale(1, -1) translate(-721.000000, -50.654403) "></path>
+	  </svg>
+	</div>
+	<img class="p-a element2" src="https://imgur.com/k7ldZXF.png">
+  </section>
+  
+  <!-- how smm panel works -->
+  <section class="howSmmPanelWorks">
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			  <h3>How Does </h3>
+			  <h2>{{ site["site_name"] }} Works?</h2>
+			  <p>We are only 24 hours each day and seven times every week to assist you and support you with all of your demands and services around the day. Don’t go anywhere else, we are here able to serve you and assist you with all of your SMM needs.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row align-items-center">
+		<div class="col-sm-6">
+		  <img src="https://i.imgur.com/ZITY0ME.png" alt="marketing1-girl" style="filter: drop-shadow(-5px 5px 5px #00000029);">
+		</div>
+		<div class="col-sm-6">
+		  <div class="row">
+			<div class="col-sm-6">
+			  <div class="box">
+				<div class="inner-box">
+				  <div>
+					<span><i class="far fa-user-plus"></i></span>
+					<h3>Register Our System By Email or Skype</h3>
+					<p>We provide the cheapest wholesale SMM Reseller Panel services amongst our competitors... <button>Read More</button></p>
+				  </div>
+				</div>
+			  </div>
+			  <div class="box">
+				<div class="inner-box">
+				  <div>
+					<span><i class="far fa-wallet"></i></span>
+					<h3>Add Fund Via Paypal, Visa/MasterCard.</h3>
+					<p>We accept payments through Evewa, Imepay,Khalti, Bank, PayPal, PayTM, credit carding, Perfect Money, etc... <button>Read More</button></p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="box">
+				<div class="inner-box">
+				  <div>
+					<span><i class="far fa-cart-plus"></i></span>
+					<h3>Place New Order and wait few minutes.</h3>
+					<p>We are the Main provider of Maximum SMM services so that we can Handle any issue Instantly... <button>Read More</button></p>
+				  </div>
+				</div>
+			  </div>
+			  <div class="box">
+				<div class="inner-box">
+				  <div>
+					<span><i class="fal fa-smile"></i></span>
+					<h3>Order Auto Completed By system and Smile.</h3>
+					<p>We provide all SMM Panel services with different demographics all over the world, such... <button>Read More</button></p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- our working areas -->
+  <section class="ourWorkingAreas">
+	<div class="p-a shape-cont top-shape1">
+	  <svg id="hill-side-soft-off" style="fill:#ffffff; height:100px;" preserveAspectRatio="none" viewBox="0 0 1442 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		  <path class="divider-color" d="M1442,30.5019121 L1442,100.654403 L0,100.654403 C572.295431,33.9877365 935.145886,0.654403168 1088.55136,0.654403168 C1162.74657,0.654403168 1280.56278,10.6035728 1442,30.5019121 Z" id="hill-side-soft-off" transform="translate(721.000000, 50.654403) scale(1, -1) translate(-721.000000, -50.654403) "></path>
+	  </svg>
+	</div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			  <h3>In What Areas</h3>
+			  <h2>We are professionally experienced</h2>
+			  <p>It is about us being able to offer help with the branding campaign, product presentation, and advertisement running across social media.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="col-sm-3">
+		  <!-- Nav tabs -->
+		  <ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+			  <a href="#fb-tab" aria-controls="fb-tab" role="tab" data-toggle="tab">
+				<span class="icon">
+				  <img src="https://imgur.com/SZSoxzR.png" alt="icon-1">
+				  <img src="https://imgur.com/cAWH4At.png" alt="icon-1">
+				</span>                                    
+				<span>Facebook</span>
+			  </a>
+			</li>
+			<li role="presentation">
+			  <a href="#insta-tab" aria-controls="insta-tab" role="tab" data-toggle="tab">
+				<span class="icon">
+				  <img src="https://imgur.com/oLcUxkm.png" alt="icon-2">
+				  <img src="https://imgur.com/5iMcOH2.png" alt="icon-2">
+				</span>                                    
+				<span>Instagram</span>
+			  </a>
+			</li>
+			<li role="presentation">
+			  <a href="#twit-tab" aria-controls="twit-tab" role="tab" data-toggle="tab">
+				<span class="icon">
+				  <img src="https://imgur.com/FHip7SN.png" alt="icon-3">
+				  <img src="https://imgur.com/2z6qSia.png" alt="icon-3">
+				</span>                                    
+				<span>Twitter</span>
+			  </a>
+			</li>
+			<li role="presentation">
+			  <a href="#sc-tab" aria-controls="sc-tab" role="tab" data-toggle="tab">
+				<span class="icon">
+				  <img src="https://imgur.com/qMvRNvP.png" alt="icon-4">
+				  <img src="https://imgur.com/Y4dCeoN.png" alt="icon-4">
+				</span>                                    
+				<span>Soundcloud</span>
+			  </a>
+			</li>
+			<li role="presentation">
+			  <a href="#yt-tab" aria-controls="yt-tab" role="tab" data-toggle="tab">
+				<span class="icon">
+				  <img src="https://imgur.com/WhNVDQ8.png" alt="icon-5">
+				  <img src="https://imgur.com/ceT0hEU.png" alt="icon-5">
+				</span>                                    
+				<span>Youtube</span>
+			  </a>
+			</li>
+			<li role="presentation">
+			  <a href="#tg-tab" aria-controls="tg-tab" role="tab" data-toggle="tab">
+				<span class="icon">
+				  <img src="https://imgur.com/cQbLDAl.png" alt="icon-6">
+				  <img src="https://imgur.com/42ioJy0.png" alt="icon-6">
+				</span>                                    
+				<span>Telegram</span>
+			  </a>
+			</li>
+		  </ul>
+		</div>
+		<div class="col-sm-9">
+		  <!-- Tab panes -->
+		  <div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="fb-tab">
+			  <div class="row align-items-center">
+				<div class="col-sm-8">
+				  <h3>Facebook Services</h3>
+				  <p>{{ site["site_name"] }} brings you Facebookmarketingservice which bring you high qualitylikes followers,positive reviews and comments on your business profile .</p>
+				  <p>Because Facebookis one of the biggest social media platform with more than2M around the world there are many small and large brand on Facebook .people spend hours of hours on Facebook so why not grow your brand online on Facebook with world cheapest and fastest panel grow your business profile .get like, comments and positive reviews on your Facebook brand profile so it looks more attractive, trustworthy.</p>
+				</div>
+				<div class="col-sm-4">
+				  <div class="icon-cont">
+					<i class="fab fa-facebook-f"></i>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="insta-tab">
+			  <div class="row align-items-center">
+				<div class="col-sm-8">
+				  <h3>Instagram Services</h3>
+				  <p>As compare to other social media networks Instagram is more popular among the teenagers, there are a lots of brands and content creators on Instagram .</p>
+				  <p>That’s why {{ site["site_name"] }} is here foryou to get more followers, likes, comments so you’re your page or brand profile looks more effective so more people engaged with your business   and your brand will get more popular among teenagers.</p>
+				</div>
+				<div class="col-sm-4">
+				  <div class="icon-cont">
+					<i class="fab fa-instagram"></i>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="twit-tab">
+			  <div class="row align-items-center">
+				<div class="col-sm-8">
+				  <h3>Twitter Services</h3>
+				  <p>Twitter is more popular for celebrityor famous person to communicate with their fan .</p>
+				  <p>That’s why {{ site["site_name"] }} is here for you to get more followers, retweet , comments so you’re your twitter profile looks more effective so more people engaged with youand you will get more popular among people on twitter.</p>
+				</div>
+				<div class="col-sm-4">
+				  <div class="icon-cont">
+					<i class="fab fa-twitter"></i>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="sc-tab">
+			  <div class="row align-items-center">
+				<div class="col-sm-8">
+				  <h3>Soundcloud Services</h3>
+				  <p>Soundcloud is music platform it is very popular among those people who like music</p>
+				  <p>With {{ site["site_name"] }} you can get likes and share on your music so your music looks more attractive for people who visit your profile.</p>
+				</div>
+				<div class="col-sm-4">
+				  <div class="icon-cont">
+					<i class="fab fa-soundcloud"></i>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="yt-tab">
+			  <div class="row align-items-center">
+				<div class="col-sm-8">
+				  <h3>Youtube Services</h3>
+				  <p>Youtube is video sharing platform it is one the best video sharing platform so there for it is very important for brands to get popular.</p>
+				  <p>{{ site["site_name"] }} panel provide you channel subscriber , watch time , video likes if you have any youtube channel and you are surfing from subscriber you can get and grow on youtube .with our services your channel will look more effective .</p>
+				</div>
+				<div class="col-sm-4">
+				  <div class="icon-cont">
+					<i class="fab fa-youtube"></i>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="tg-tab">
+			  <div class="row align-items-center">
+				<div class="col-sm-8">
+				  <h3>Telegram Services</h3>
+				  <p>Telegram is chatting and media sharing platform so there for it is very important for people those who want to communicate with people. SMM Panel meaning is Cheapest SMM and SEO Services Reseller Panel Script or website, where People Buy-Sell Social Media Marketing Service Such as Facebook Fans, Twitter devotees, Instagram Followers, YouTube watch time Views, Website Traffic, tiktok likes, and more significant associations.</p>
+				  <p>{{ site["site_name"] }} panel provide you channel subscriber , active user , if you have any telegram channel and you are surfing from subscriber you can get and grow on telegram .with our services your channel will look more effective.</p>
+				</div>
+				<div class="col-sm-4">
+				  <div class="icon-cont">
+					<i class="fab fa-telegram-plane"></i>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="p-a shape-cont bottom-shape1">
+	  <svg id="hill-side-soft-off" style="fill:#ffffff; height:100px;" preserveAspectRatio="none" viewBox="0 0 1442 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		  <path class="divider-color" d="M1442,30.5019121 L1442,100.654403 L0,100.654403 C572.295431,33.9877365 935.145886,0.654403168 1088.55136,0.654403168 C1162.74657,0.654403168 1280.56278,10.6035728 1442,30.5019121 Z" id="hill-side-soft-off" transform="translate(721.000000, 50.654403) scale(1, -1) translate(-721.000000, -50.654403) "></path>
+	  </svg>
+	</div>
+	<img class="p-a element4" src="https://imgur.com/RHXaNNs.png">
+  </section>
+  
+  <!-- testmonial section -->
+  <section class="testimonialSec">
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="section-header">
+			  <h3>Happy Clients</h3>
+			  <h2>Our Customers of Social Media Panel</h2>
+			  <p>It is about us being able to offer help with the branding campaign, product presentation, and advertisement running across social media.Buy Cheap Social Media followers, likes, Views, Share instantly.</p>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row align-items-center">
+		<div class="col-sm-5">
+		  <img src="https://i.imgur.com/ZITY0ME.png" alt="testimonial-girl">
+		</div>
+		<div class="col-sm-7">
+		  <div class="testimonial-slider">
+			<div>
+			  <div class="box">
+				<span class="avatar"><img src="https://imgur.com/QaBgEqJ.png"></span>
+				<blockquote>{{ site["site_name"] }} has helped my shoe company a lot. Over the past 4 months, my company sales have increased widely after I started on using {{ site["site_name"] }} on my company's Instagram to boost it!</blockquote>                
+				<h5 class="customer-name">Matilda Jones</h5>
+				<span class="quotes"><img src="https://imgur.com/pEJ2Hc2.png"></span>
+			  </div>
+			</div>
+			<div>
+			  <div class="box">
+				<span class="avatar"><img src="https://imgur.com/neNQFa8.png"></span>
+				<blockquote>I have been using {{ site["site_name"] }} for a year now, I am very happy with their panel. I never had a problem, and when something wrong occurs they always compensate and more! Simply the best!</blockquote>
+				<h5 class="customer-name">Matt Reynolds</h5>
+				<span class="quotes"><img src="https://imgur.com/pEJ2Hc2.png"></span>
+			  </div>
+			</div>
+			<div>
+			  <div class="box">
+				<span class="avatar"><img src="https://imgur.com/ru20rjp.png"></span>
+				<blockquote>{{ site["site_name"] }} has really changed my life. I use {{ site["site_name"] }} to boost my clients' exposure on Youtube and Soundcloud, {{ site["site_name"] }} has made this job a 1000 times easier for me. I cannot thank them enough!</blockquote>
+				<h5 class="customer-name">James Wilson</h5>
+				<span class="quotes"><img src="https://imgur.com/pEJ2Hc2.png"></span>
+			  </div>
+			</div>
+			<div>
+			  <div class="box">
+				<span class="avatar"><img src="https://imgur.com/Ws7eXXM.png"></span>
+				<blockquote>Order 10000 Instagram Followers and Got my followers as promised in time! Happy to Purchased from {{ site["site_name"] }}. We will Continue with them for our future purchase.</blockquote>
+				<h5 class="customer-name">Carl Joe</h5>
+				<span class="quotes"><img src="https://imgur.com/pEJ2Hc2.png"></span>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- payment icons section -->
+  <section class="payIconsSec">
+	<div class="container-fluid">
+	  <div class="row">
+		<div class="col-sm-12">
+		  <div class="payIcons-slider">
+  <div><img src="https://imgur.com/99bnLaO.png" alt="Visa"></div>
+  <div><img src="https://imgur.com/p3h4nyY.png" alt="Mastercard"></div>
+  <div><img src="https://imgur.com/6zEZuBZ.png" alt="PerfectMoney"></div>
+  <div><img src="https://imgur.com/AL9uOPt.png" alt="Skrill"></div>
+  <div><img src="https://imgur.com/rdSYcDQ.png" alt="Payoneer"></div>
+  <div><img src="https://imgur.com/lVkhOXo.png" alt="westernunioun"></div>
+  <div><img src="https://imgur.com/EvtgnQo.png" alt="Paypal"></div>
+  <div><img src="https://imgur.com/lsGplOh.png" alt="Paytm"></div>
+  
+  <div><img src="https://imgur.com/sCwCyf4.jpg" alt="Esewa"></div>  
+  <div><img src="https://i.imgur.com/ETSstC9.png" alt="Khalti"></div> 
+  <div><img src="https://imgur.com/fNicgTR.jpg" alt="Prabhu"></div> 
+  <div><img src="https://imgur.com/nHeKsuS.jpg" alt="Paytime"></div> 
+  <div><img src="https://imgur.com/ZcLT5Wd.jpg" alt="Cell pay"></div>     
+  <div><img src="https://imgur.com/TmdCPQ7.jpg" alt="Fonepay"></div> 
+  <div><img src="https://imgur.com/5Z6DOO8.jpg" alt="namastepay"></div> 
+</div>
+            
+		 
+		</div>
+	  </div>
+	</div>
+  </section>
+		
+      
+{% include 'footer.twig' %}

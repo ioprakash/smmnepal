@@ -1,0 +1,525 @@
+{% include 'header.twig' %}
+
+{% block content %}
+<style>
+.affiliate-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    background: white;
+    border: none;
+    overflow: hidden;
+}
+
+.affiliate-card-header {
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #4361ee, #3f37c9);
+    color: white;
+    font-weight: 600;
+}
+
+.affiliate-card-body {
+    padding: 20px;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: #4361ee;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.referral-link-box {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.copy-btn {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.copy-btn:hover {
+    transform: translateY(-2px);
+}
+
+.method-badge {
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    background: #e9ecef;
+    color: #495057;
+}
+
+.table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+/* Dark Mode Styles */
+.dark .affiliate-card {
+    background: var(--second-bg);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 1px solid var(--main-border);
+}
+
+.dark .affiliate-card-header {
+    background: linear-gradient(135deg, var(--main-color), var(--main-color-hover));
+    color: var(--text-white);
+}
+
+.dark .stat-box {
+    background: var(--main-bg);
+    color: var(--text-white);
+    border: 1px solid var(--main-border);
+}
+
+.dark .stat-number {
+    color: var(--main-color);
+}
+
+.dark .referral-link-box {
+    background: var(--main-bg);
+    border: 1px solid var(--main-border);
+}
+
+.dark .form-control {
+    background-color: var(--second-bg);
+    border-color: var(--main-border);
+    color: var(--text-white);
+}
+
+.dark .form-control:focus {
+    background-color: var(--second-bg);
+    color: var(--text-white);
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 0.2rem var(--main-color-trans);
+}
+
+.dark .input-group-text {
+    background-color: var(--main-bg);
+    border-color: var(--main-border);
+    color: var(--text-white);
+}
+
+.dark .table {
+    color: var(--text-white);
+}
+
+.dark .table th {
+    color: var(--text-white);
+    background-color: var(--main-bg);
+    border-color: var(--main-border);
+}
+
+.dark .table td {
+    border-color: var(--main-border);
+}
+
+.dark .table-hover tbody tr:hover {
+    background-color: var(--main-bg);
+    color: var(--text-white);
+}
+
+.dark .badge {
+    color: var(--text-white);
+}
+
+.dark .text-muted {
+    color: #adb5bd !important;
+}
+
+.dark .btn-primary {
+    background: linear-gradient(135deg, var(--main-color), var(--main-color-hover));
+    border-color: var(--main-color);
+}
+
+.dark .btn-primary:hover {
+    background: linear-gradient(135deg, var(--main-color-hover), var(--main-color));
+    border-color: var(--main-color-hover);
+}
+
+.dark .btn-big-secondary {
+    background: var(--main-bg);
+    color: var(--text-white);
+    border-color: var(--main-border);
+}
+
+.dark .btn-big-secondary:hover {
+    background: var(--second-bg);
+    color: var(--text-white);
+}
+
+.dark .dropdown-menu {
+    background-color: var(--second-bg);
+    border-color: var(--main-border);
+}
+
+.dark .dropdown-item {
+    color: var(--text-white);
+}
+
+.dark .dropdown-item:hover {
+    background-color: var(--main-color);
+    color: var(--text-white);
+}
+
+.dark .modal-content {
+    background-color: var(--second-bg);
+    border-color: var(--main-border);
+}
+
+.dark .modal-header {
+    border-bottom-color: var(--main-border);
+}
+
+.dark .modal-footer {
+    border-top-color: var(--main-border);
+}
+
+.dark .close {
+    color: var(--text-white);
+    text-shadow: 0 1px 0 var(--main-bg);
+}
+
+/* Status badges */
+.dark .label-success {
+    background-color: var(--tp-color-green);
+}
+
+.dark .label-danger {
+    background-color: var(--tp-color-red);
+}
+
+.dark .label-warning {
+    background-color: var(--tp-color-orange);
+}
+
+/* Method badges */
+.dark .method-badge {
+    background: var(--main-bg);
+    color: var(--text-white);
+    border: 1px solid var(--main-border);
+}
+
+/* Alert boxes */
+.dark .alert-info {
+    background-color: var(--main-bg);
+    border-color: var(--main-border);
+    color: var(--text-white);
+}
+</style>
+
+<div class="row mt-lg-3 m-top">
+    <div class="col-lg-12 offset-lg-1">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="affiliate-card">
+                        <div class="affiliate-card-header">
+                            <h4 class="mb-0">Affiliate Dashboard</h4>
+                        </div>
+                        <div class="affiliate-card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="stat-box">
+                                        <div class="stat-number">{{ stats.total_referred }}</div>
+                                        <div class="stat-label">Total Referred</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-box">
+                                        <div class="stat-number">{{ stats.active_referred }}</div>
+                                        <div class="stat-label">Active Referrals</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-box">
+                                        <div class="stat-number">{{ user['currency_symbol'] }}  {{ (user['currency_rate']*stats.total_earned)|round(2, 'floor') }}</div>
+                                        <div class="stat-label">Total Earned</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stat-box">
+                                        <div class="stat-number">{{ user['currency_symbol'] }}  {{ (user['currency_rate']*stats.available_balance)|round(2, 'floor') }}</div>
+                                        <div class="stat-label">Available Balance</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="referral-link-box">
+                                <h5>Your Referral Link</h5>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="referralLink" 
+                                           value="{{ site_url }}?ref={{ referralCode }}" readonly>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary copy-btn" onclick="copyReferralLink()">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+                                <small class="text-muted">Earn {{ affiliate_settings.commission_rate }}% commission on every deposit made by your referrals</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="affiliate-card">
+                        <div class="affiliate-card-header">
+                            <h4 class="mb-0">Withdraw Earnings</h4>
+                        </div>
+                        <div class="affiliate-card-body">
+                            {% if successMsg %}
+                                <div class="alert alert-success">{{ successMsg }} <script> setTimeout(function(){window.location= '/affiliate'},1000);  </script></div>
+                            {% endif %}
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error }}</div>
+                            {% endif %}
+                            
+                            <form id="withdrawalForm" action="{{ site_url }}affiliate" method="post">
+                                <div class="form-group">
+                                    <label>Withdrawal Method</label>
+                                    <select class="form-control" name="method" required>
+                                        <option value="">Select Method</option>
+                                        {% for method in withdrawalMethods %}
+                                            <option value="{{ method.id }}" 
+                                                    data-min="{{ method.min_amount }}"
+                                                    data-fields='{{ method.fields|json_encode }}'>
+                                                {{ method.name }} (Min: {{ method.min_amount }})
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Amount [{{ settings['site_base_currency'] }}]</label>
+                                    <input type="number" step="0.01" min="0" 
+                                           class="form-control" name="amount" 
+                                           placeholder="Enter amount in {{ settings['site_base_currency'] }} to withdraw" required>
+                                    <small class="text-muted">Available: {{ walletInfo.balance }}</small>
+                                </div>
+                                <div class="form-group" id="methodDetailsContainer" style="display: none;">
+                                    <!-- Dynamic fields will be inserted here -->
+                                </div>
+                                <button type="submit" name="withdraw" class="btn btn-primary">Request Withdrawal</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="affiliate-card mt-4">
+                        <div class="affiliate-card-header">
+                            <h4 class="mb-0">Recent Withdrawals</h4>
+                        </div>
+                        <div class="affiliate-card-body">
+                            {% if withdrawalHistory %}
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Amount</th>
+                                                <th>Method</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for withdrawal in withdrawalHistory %}
+                                                <tr>
+                                                    <td>#{{ withdrawal.id }}</td>
+                                                    <td> {{ user['currency_symbol'] }} {{ (withdrawal.amount*user['currency_rate'])|round(2, 'floor') }}</td>
+                                                    <td>{{ withdrawal.method_name }}</td>
+                                                    <td>
+                                                        <span class="badge badge-{{ withdrawal.status == 'processed' ? 'success' : 
+                                                                                  withdrawal.status == 'pending' ? 'warning' : 'danger' }}">
+                                                            {{ withdrawal.status|capitalize }}
+                                                        </span>
+                                                    </td>
+                                                    <td>{{ withdrawal.created_at|date('d M Y') }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p class="text-muted">No withdrawal history found</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="affiliate-card">
+                        <div class="affiliate-card-header">
+                            <h4 class="mb-0">Your Referrals</h4>
+                        </div>
+                        <div class="affiliate-card-body">
+                            {% if referredClients %}
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Joined</th>
+                                                <th>Spents</th>
+                                                <th>Total Spent</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for client in referredClients %}
+                                                <tr>
+                                                    <td>{{ client.username }}</td>
+                                                    <td>{{ client.register_date|date('d M Y') }}</td>
+                                                    <td>{{ client.deposits_count }}</td>
+                                                    <td>{{ user['currency_symbol'] }} {{  (client.total_deposited*user['currency_rate'])|round(2, 'floor') }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p class="text-muted">You haven't referred anyone yet</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="affiliate-card mt-4">
+                        <div class="affiliate-card-header">
+                            <h4 class="mb-0">Commission History</h4>
+                        </div>
+                        <div class="affiliate-card-body">
+                            {% if commissionHistory %}
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Referred User</th>
+                                                <th>Amount</th>
+                                                <th>Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for commission in commissionHistory %}
+                                                <tr>
+                                                    <td>{{ commission.created_at|date('d M Y') }}</td>
+                                                    <td>{{ commission.referred_username }}</td>
+                                                    <td> {{ user['currency_symbol'] }} {{ (commission.amount*user['currency_rate'])|round(2, 'floor') }}</td>
+                                                    <td>{{ commission.percentage }}%</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p class="text-muted">No commission history found</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function copyReferralLink() {
+    var copyText = document.getElementById("referralLink");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    
+    // Show tooltip or alert
+    alert("Referral link copied to clipboard!");
+}
+
+// Dynamic method details
+document.querySelector('select[name="method"]').addEventListener('change', function() {
+    const methodId = this.value;
+    const container = document.getElementById('methodDetailsContainer');
+    const amountInput = document.querySelector('input[name="amount"]');
+    
+    if (!methodId) {
+        container.style.display = 'none';
+        return;
+    }
+    
+    // Get selected option data
+    const selectedOption = this.options[this.selectedIndex];
+    const minAmount = parseFloat(selectedOption.dataset.min);
+    const fields = JSON.parse(selectedOption.dataset.fields);
+    
+    // Update amount min value
+    amountInput.min = minAmount;
+    
+    // Clear previous fields
+    container.innerHTML = '';
+    
+    // Add fields based on method
+    if (fields && fields.length > 0) {
+        fields.forEach(field => {
+            const fieldName = 'field_' + field.name.toLowerCase().replace(/ /g, '_');
+            let fieldHtml = '';
+            
+            if (field.type === 'textarea') {
+                fieldHtml = `
+                    <div class="form-group">
+                        <label>${field.name}</label>
+                        <textarea class="form-control" name="${fieldName}" 
+                                  ${field.required ? 'required' : ''}
+                                  placeholder="${field.placeholder || ''}"></textarea>
+                    </div>
+                `;
+            } else {
+                const inputType = field.type === 'email' ? 'email' : 
+                                field.type === 'number' ? 'number' : 'text';
+                
+                fieldHtml = `
+                    <div class="form-group">
+                        <label>${field.name}</label>
+                        <input type="${inputType}" class="form-control" 
+                               name="${fieldName}" 
+                               ${field.required ? 'required' : ''}
+                               placeholder="${field.placeholder || ''}">
+                    </div>
+                `;
+            }
+            
+            container.insertAdjacentHTML('beforeend', fieldHtml);
+        });
+    }
+    
+    container.style.display = fields && fields.length > 0 ? 'block' : 'none';
+});
+
+// Initialize method fields if coming back with error
+document.addEventListener('DOMContentLoaded', function() {
+    const methodSelect = document.querySelector('select[name="method"]');
+    if (methodSelect.value) {
+        methodSelect.dispatchEvent(new Event('change'));
+    }
+});
+</script>
+
+{% endblock %}
+
+{% include 'footer.twig' %}

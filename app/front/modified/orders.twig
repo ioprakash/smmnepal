@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>{% if pagetitle %}{{ pagetitle }}{% else %}{{ title }}{% endif %}</title>
+		<meta property="og:title" content="{% if pagetitle %} {{ pagetitle }} {% else %} {{ title }} {% endif %}"/>
+      	<meta charset="utf-8">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="google-site-verification" content="{{ site['google_verification'] }}" />
+		<meta name="keywords" content="{% if pagekeywords %} {{ pagekeywords }} {% else %} {{ site[" keywords"]}} {% endif %}">
+		<meta name="description" content="{% if pagedescription %} {{ pagedescription }} {% else %} {{ site['description'] }} {% endif %}">
+		<meta property="og:description" content="{% if pagedescription %} {{ pagedescription }} {% else %} {{ site['description'] }} {% endif %}"/>
+		<meta name="keywords" content="" />
+
+{% if site['favicon'] %}
+				<link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}"/>
+{% endif %}
+
+		<link href="https://smmnepal.com/assets/v1/style.css" rel="stylesheet">
+      	
+      	<style type="text/css">@font-face {font-family:Zen Dots;font-style:normal;font-weight:400;src:url(/cf-fonts/s/zen-dots/5.0.18/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Zen Dots;font-style:normal;font-weight:400;src:url(/cf-fonts/s/zen-dots/5.0.18/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:400;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:400;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:500;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:500;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:700;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:700;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:900;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Red Hat Display;font-style:normal;font-weight:900;src:url(/cf-fonts/v/red-hat-display/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:100;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/100/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:100;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/100/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:100;src:url(/cf-fonts/s/poppins/5.0.11/latin/100/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:200;src:url(/cf-fonts/s/poppins/5.0.11/latin/200/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:200;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/200/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:200;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/200/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/300/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(/cf-fonts/s/poppins/5.0.11/latin/300/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:300;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/300/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(/cf-fonts/s/poppins/5.0.11/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:400;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/400/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/500/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(/cf-fonts/s/poppins/5.0.11/latin/500/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:500;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/500/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:600;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/600/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:600;src:url(/cf-fonts/s/poppins/5.0.11/latin/600/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:600;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/600/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(/cf-fonts/s/poppins/5.0.11/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:700;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/700/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:800;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/800/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:800;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/800/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:800;src:url(/cf-fonts/s/poppins/5.0.11/latin/800/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:900;src:url(/cf-fonts/s/poppins/5.0.11/devanagari/900/normal.woff2);unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+25CC,U+A830-A839,U+A8E0-A8FF;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:900;src:url(/cf-fonts/s/poppins/5.0.11/latin/900/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Poppins;font-style:normal;font-weight:900;src:url(/cf-fonts/s/poppins/5.0.11/latin-ext/900/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+      	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
+      	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+      
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+         <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css"
+      rel="stylesheet"
+    />
+      
+      
+		 <link rel="manifest" href="app-manifest.json"><link rel="dns-prefetch" href="//cdn.apanel.link"><link rel="dns-prefetch" href="//cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdn.apanel.link/main/css/global.main.v24.18.11.v2.css" media="print" onload="this.media='all'" /><link rel="stylesheet" href="https://cdn.apanel.link/main/fa5151/css/all.min.css"  media="print" onload="this.media='all'" /> 
+	 	      	
+      	
+      <link rel="stylesheet" href="https://cdn.apanel.link/custom-data/smnp12398238/custom-style.css" />
+      
+      
+	</head>
+ 
+	<body id="order-pages" class="order_history authorized daymode">
+		
+		<div id="wrapper" class="toggled">
+    <nav class="navbar navbar-default navbar-static-top">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a type="button" onclick="abc()" class="nav-btn"><i class="fas fa-bars"></i></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+																<span class="sr-only"></span>
+																<span class="icon-bar"></span>
+																<span class="icon-bar"></span>
+																<span class="icon-bar"></span>
+															</button>
+                <div class="show-in-mob">
+                    <div class="sideBarLogo">
+                        <a class="navbar-brand" href="/"> 
+
+															{% if site["logo"] %}
+																<img style="max-width:200px;" src="{{ site['logo'] }}" alt="" title="">
+															{% else %}
+																<span style="text-transform: ">
+																	<span style="font-size: 24px">
+																		<span style="letter-spacing: 1.0px">
+																			<span style="line-height: 0px">
+																				<strong style="font-weight: bold">{{ site["site_name"] }}</strong>
+																			</span>
+																		</span>
+																	</span>
+																</span>
+															{% endif %}
+														</a>
+                    </div>
+<li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <ul class="nav navbar-nav  currency_div navbar-right">
+												<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+														<span class="currency-icon-span "  ><img src="https://i.ibb.co/zxX5snd/usa.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span"> USD</span>
+														<span class="caret"></span>
+													</a>
+													<ul class="dropdown-menu dropdown-max-height">
+														<li class="nav-item active">
+												<a href="?currency=1">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/zxX5snd/usa.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">USD</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=2">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/Z2mnpbY/india.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">INR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=3">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/KmywFy8/malasya.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">MYR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=6">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/PF1s2Kk/european.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">EUR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=12">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/LDGvtYzr/uk.png" alt="uk" width="30" height="30"></span> <span class="currency-name-span">GBP</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=13">
+													<span class="currency-icon-span "  >
+<img src="https://i.ibb.co/nDq2nTS/russia.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">RUB</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=14">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/r6M6gML/saudi.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">SAR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=15">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/tX77Z2v/korea-2.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">KRW</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=19">
+													<span class="currency-icon-span "  >
+<img src="https://i.ibb.co/ckMrT5M/pakistan.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">PKR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=20">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/tp0SHHWv/canadian.png" alt="canadian" width="30" height="30"></span> <span class="currency-name-span">CAD</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=21">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/NTsjWq0/npr.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">NPR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=25">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/K6T2GdN/australia.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">AUD</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=26">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/cTWjpHM/bangladesh.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">BDT</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=46">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/4JPw34Z/qatar.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">QAR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=47">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/Vqm4JPS/romania-2.png" alt="ron" width="30" height="30"></span> <span class="currency-name-span">RON</span>
+												</a>
+											</li>
+													</ul>
+												</li>
+											</ul></li>
+<div id="google_translate_element"></div>
+                    <div class="sidebar-pinner">
+                        <a id="menu-toggle" class="btn btn-secondary" href="#menu-toggle">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</a>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                  <ol class="breadcrumb mob-show">
+                    <li><a href="#"><img src="//i.imgur.com/LEK30W1.png" alt="Bread Icon"> HOME</a></li>
+                    <li class="pageName">
+                        <div>New order</div>
+                    </li>
+                </ol>
+                <span class="pull-right mob-show"><a href="/addfunds"><span class="badge blnceBadge">{{ user["balance"] }}<span> </span><i class="fas fa-plus"></i></span>
+                </a>
+                </span>
+                
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" data-nav="navbar-priority">
+                <ol class="breadcrumb">
+                    <li><a href="#"><img src="//i.imgur.com/LEK30W1.png" alt="Bread Icon"> HOME</a></li>
+                    <li>New order</li>
+
+                </ol>
+                <ul class="nav navbar-nav navbar-lanauge navbar-right" >
+												<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fal fa-globe-asia"></i> 
+														<span class="language-icon-span"></span> <span class="language-name-span">en</span>
+														<span class="caret"></span>
+													</a>
+													<ul class="dropdown-menu dropdown-max-height">
+														<li class="nav-item active language_menu_item_en">
+												<a class="nav-link" href="?lang=en"> 
+													
+													<span class="language-icon-span"></span> <span class="language-name-span testing123">English</span><span class="language-abbrivation-span "> ( en )</span>
+												</a>
+											</li><li class="nav-item  language_menu_item_ne">
+												<a class="nav-link" href="?lang=ne"> 
+													
+													<span class="language-icon-span"></span> <span class="language-name-span testing123">Nepali</span><span class="language-abbrivation-span "> ( ne )</span>
+												</a>
+											</li><li class="nav-item  language_menu_item_hi">
+												<a class="nav-link" href="?lang=hi"> 
+													
+													<span class="language-icon-span"></span> <span class="language-name-span testing123">Hindi</span><span class="language-abbrivation-span "> ( hi )</span>
+												</a>
+											</li><li class="nav-item  language_menu_item_ur">
+												<a class="nav-link" href="?lang=ur"> 
+													
+													<span class="language-icon-span"></span> <span class="language-name-span testing123">Urdu</span><span class="language-abbrivation-span "> ( ur )</span>
+												</a>
+											</li>
+													</ul>
+												</li>
+											</ul>
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+											
+              <ul class="nav navbar-nav nav-bar-leftside sidebar-nav">
+                    <li class="nav-item active menu_item_1 " id="menu_item_1">
+												<a class="nav-link" href="/">
+													<i class="fas fa-cart-arrow-down"></i> <span class="menu-title">New Order </span>
+												</a>
+											</li><li class="nav-item  menu_item_3 " id="menu_item_3">
+												<a class="nav-link" href="/orders">
+													<i class="fas fa-server"></i> <span class="menu-title">My Orders </span>
+												</a>
+											</li><li class="nav-item  menu_item_4 " id="menu_item_4">
+												<a class="nav-link" href="/services">
+													<i class="fas fa-cogs"></i> <span class="menu-title">Services </span>
+												</a>
+											</li><li class="nav-item  menu_item_7 " id="menu_item_7">
+												<a class="nav-link" href="/addfunds">
+													<i class="far fa-credit-card"></i> <span class="menu-title">Add Funds </span>
+												</a>
+											</li><li class="nav-item  menu_item_10 " id="menu_item_10">
+												<a class="nav-link" href="/tickets">
+													<i class="fas fa-ticket-alt"></i> <span class="menu-title">Tickets <span class="badge" style="background-color: #f0ad4e">0</span></span>
+												</a>
+											</li><li class="nav-item  menu_item_12 " id="menu_item_12">
+												<a class="nav-link" href="/api">
+													<i class="fal fa-share-alt"></i> <span class="menu-title">API </span>
+												</a>
+											</li><li class="nav-item  menu_item_16 " id="menu_item_16">
+												<a class="nav-link" href="/refer">
+													<i class="fas fa-bezier-curve"></i> <span class="menu-title">Refer &amp; Earn </span>
+												</a>
+											</li><li class="nav-item  menu_item_8 " id="menu_item_8">
+												<a class="nav-link" href="/faq">
+													<i class="far fa-question"></i> <span class="menu-title">FAQs </span>
+												</a>
+											</li><li class="nav-item  menu_item_9 " id="menu_item_9">
+												<a class="nav-link" href="/terms">
+													<i class="fas fa-file-alt"></i> <span class="menu-title">Terms </span>
+												</a>
+											</li><li class="nav-item  menu_item_15 " id="menu_item_15">
+												<a class="nav-link" href="/about-us">
+													<i class="fas fa-info-circle"></i> <span class="menu-title">About Us </span>
+												</a>
+											</li>
+                </ul>
+
+
+                 <ul class="nav navbar-nav nav-bar-account navbar-right">
+                    <li id="google_translate_element"></li>
+                      <li><ul class="nav navbar-nav  currency_div navbar-right">
+												<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+														<span class="currency-icon-span "  ><img src="https://i.ibb.co/zxX5snd/usa.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span"> USD</span>
+														<span class="caret"></span>
+													</a>
+													<ul class="dropdown-menu dropdown-max-height">
+														<li class="nav-item active">
+												<a href="?currency=1">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/zxX5snd/usa.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">USD</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=2">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/Z2mnpbY/india.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">INR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=3">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/KmywFy8/malasya.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">MYR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=6">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/PF1s2Kk/european.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">EUR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=12">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/LDGvtYzr/uk.png" alt="uk" width="30" height="30"></span> <span class="currency-name-span">GBP</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=13">
+													<span class="currency-icon-span "  >
+<img src="https://i.ibb.co/nDq2nTS/russia.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">RUB</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=14">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/r6M6gML/saudi.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">SAR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=15">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/tX77Z2v/korea-2.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">KRW</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=19">
+													<span class="currency-icon-span "  >
+<img src="https://i.ibb.co/ckMrT5M/pakistan.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">PKR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=20">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/tp0SHHWv/canadian.png" alt="canadian" width="30" height="30"></span> <span class="currency-name-span">CAD</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=21">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/NTsjWq0/npr.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">NPR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=25">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/K6T2GdN/australia.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">AUD</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=26">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/cTWjpHM/bangladesh.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">BDT</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=46">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/4JPw34Z/qatar.png" alt="pkr" width="30" height="30"></span> <span class="currency-name-span">QAR</span>
+												</a>
+											</li><li class="nav-item ">
+												<a href="?currency=47">
+													<span class="currency-icon-span "  ><img src="https://i.ibb.co/Vqm4JPS/romania-2.png" alt="ron" width="30" height="30"></span> <span class="currency-name-span">RON</span>
+												</a>
+											</li>
+													</ul>
+												</li>
+											</ul></li>
+                    <li>
+                        <a href="/addfunds"><span class="badge blnceBadge blnceBadge-desktop">$ 0<span> <i class="fas fa-plus"></i> </span></span></a>
+                    </li>
+                    <li>
+                        <a href="/tickets"><span class="drop-icon"><i class="fas fa-comments"></i><span class="ticket-count"></span></span></a>
+                    </li>
+                    <li><a href="settings"><span class="drop-icon"><i class="fas fa-cog"></i></span></a></li>
+                    <li><button class="modeChanger" data-trigger="hover" data-toggle="popover" data-content="Enjoy Night Mode Feature" data-placement="bottom" data-original-title="" title=""><span class="drop-icon"><i class="far fa-moon"></i></span></button></li>
+
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<span class="drop-icon"><i class="fas fa-user-alt"></i></span>
+				<span class="caret"></span>
+																	</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="account">Settings</a></li>
+                            <li><a href="?logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-collapse navbar-ex1-collapse">
+            <div id="sidebar-wrapper" class="sidebar-toggle">
+                <div class="side-back">
+                    <ul class="sideBarUtilities">
+                        <li>
+                            <a id="menu-toggle2" class="btn btn-secondary" href="#menu-toggle">
+								<i class="fa fa-times"></i>
+							</a>
+                        </li>
+                        <li>
+                            <a href="/account">
+								<i class="fa fa-user"></i>
+							</a>
+                        </li>
+                        <li>
+                            <button class="modeChanger" data-trigger="hover" data-toggle="popover" data-content="Enjoy Night Mode Feature" data-placement="bottom" data-original-title="" title="">
+								<i class="far fa-moon"></i>
+							</button>
+                        </li>
+                        <li>
+                            <a href="/refer">
+								  <i class="fa fa-share-alt"></i>
+							  </a>
+                        </li>
+                        <li>
+                            <a href="/tickets">
+								  <i class="fas fa-ticket-alt"></i>
+							  </a>
+                        </li>
+                        <li>
+                            <a href="#">
+								<i class="fa fa-lightbulb"></i>
+							</a>
+                        </li>
+
+                    </ul>
+                    <div class="sideBarLogo">
+                        <a class="navbar-brand" href="/">
+			{% if site["logo"] %}
+																<img style="max-width:200px;" src="{{ site['logo'] }}" alt="" title="">
+															{% else %}
+																<span style="text-transform: ">
+																	<span style="font-size: 24px">
+																		<span style="letter-spacing: 1.0px">
+																			<span style="line-height: 0px">
+																				<strong style="font-weight: bold">{{ site["site_name"] }}</strong>
+																			</span>
+																		</span>
+																	</span>
+																</span>
+															{% endif %}
+														</a>
+                    </div>
+                    <div class="profileBox">
+                        <div class="profilePic"><img src="https://i.postimg.cc/L6GCK21j/profile-Pic.png" alt="profile pic"></div>
+                        <h4>{{ user["username"] }} <img src="https://i.imgur.com/Myo6zU6.png" alt="verify" style="width:17px;height:17px;"> </h4>
+                        <p><img src="//i.imgur.com/65AKxWJ.png" alt="online icon"> <span>Online</span></p>
+                    </div>
+                    <span class="mob-show">
+							<a href="/addfunds">
+							  <span class="badge blnceBadge">$0<span><i class="fas fa-plus"></i></span></span>
+                    </a>
+                    </span>
+                    <ul class="sidebar-nav">
+                        <li class="nav-item active menu_item_1 " id="menu_item_1">
+												<a class="nav-link" href="/">
+													<i class="fas fa-cart-arrow-down"></i> <span class="menu-title">New Order </span>
+												</a>
+											</li><li class="nav-item  menu_item_3 " id="menu_item_3">
+												<a class="nav-link" href="/orders">
+													<i class="fas fa-server"></i> <span class="menu-title">My Orders </span>
+												</a>
+											</li><li class="nav-item  menu_item_4 " id="menu_item_4">
+												<a class="nav-link" href="/services">
+													<i class="fas fa-cogs"></i> <span class="menu-title">Services </span>
+												</a>
+											</li><li class="nav-item  menu_item_7 " id="menu_item_7">
+												<a class="nav-link" href="/addfunds">
+													<i class="far fa-credit-card"></i> <span class="menu-title">Add Funds </span>
+												</a>
+											</li><li class="nav-item  menu_item_10 " id="menu_item_10">
+												<a class="nav-link" href="/tickets">
+													<i class="fas fa-ticket-alt"></i> <span class="menu-title">Tickets <span class="badge" style="background-color: #f0ad4e">0</span></span>
+												</a>
+											</li><li class="nav-item  menu_item_12 " id="menu_item_12">
+												<a class="nav-link" href="/api">
+													<i class="fal fa-share-alt"></i> <span class="menu-title">API </span>
+												</a>
+											</li><li class="nav-item  menu_item_16 " id="menu_item_16">
+												<a class="nav-link" href="/refer">
+													<i class="fas fa-bezier-curve"></i> <span class="menu-title">Refer &amp; Earn </span>
+												</a>
+											</li><li class="nav-item  menu_item_8 " id="menu_item_8">
+												<a class="nav-link" href="/faq">
+													<i class="far fa-question"></i> <span class="menu-title">FAQs </span>
+												</a>
+											</li><li class="nav-item  menu_item_9 " id="menu_item_9">
+												<a class="nav-link" href="/terms">
+													<i class="fas fa-file-alt"></i> <span class="menu-title">Terms </span>
+												</a>
+											</li><li class="nav-item  menu_item_15 " id="menu_item_15">
+												<a class="nav-link" href="/about-us">
+													<i class="fas fa-info-circle"></i> <span class="menu-title">About Us </span>
+												</a>
+											</li>
+<li class="nav-item showOnMobile">
+												<a class="nav-link" href="/logout">
+													<i class="fa fa-sign-out"></i> <span class="menu-title">Logout</span>
+												</a>
+											</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+		
+		
+		
+		
+		<div id="page-wrapper">
+    <div class="inner-page-wrapper">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js">
+        </script>
+        <script>
+            function copyToClipboard(element) {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                document.execCommand("copy");
+                $temp.remove();
+            }
+        </script>
+        <style>
+            .width-service-name {
+                min-width: 329px;
+                width: 329px !important;
+            }
+          	@media (max-width:550px) {
+          		.order-title .nav.nav-pills {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+          		.order-title .nav.nav-pills li {
+                    width: auto;
+                    flex: 1 1 auto;
+                    float: none;
+          			margin: 2px;
+                }
+          		.order-title .nav.nav-pills li a {
+                    padding: 10px;
+                    border: 1px solid;
+                }
+          	}
+        </style>
+    <script>
+  $(document).ready(function () {
+    $('.final-qty').each(function () {
+      var start = parseInt($(this).data('start')) || 0;
+      var qty = parseInt($(this).data('amount')) || 0;
+      var remaining = parseInt($(this).data('remaining')) || 0;
+      var total = start + qty - remaining;
+      $(this).text(total);
+    });
+  });
+</script>
+
+
+        <div class="container-fluid service-page order-page">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well">
+                        <form action="" method="get" id="history-search">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" value="" placeholder="Search orders">
+                                <span class="input-group-btn">
+            <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="well">
+                        <div class="order-title">
+                            <div class="dash-title">
+                                <h2> <i class="far fa-cart-arrow-down"></i> Orders</h2>
+                            </div>
+                          	
+                            <ul class="nav nav-pills">
+                                <li class="active"><a href="?type=all"><i class="fas fa-list-ul"></i> All</a></li>
+                                <li class=""><a href="?type=pending"><i class="far fa-pause-circle"></i> Pending</a></li>
+                                <li class=""><a href="?type=processing"><i class="fas fa-redo"></i> Working</a></li>
+                                <li class=""><a href="?type=completed"><i class="fas fa-check-double"></i> Completed</a></li>
+                                <li class=""><a href="?type=partial"><i class="fas fa-check"></i> Partial Refunded</a></li>
+                                <li class=""><a href="?type=canceled"><i class="far fa-times-circle"></i> Canceled &amp; Refunded</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th class="nowrap"><i class="far fa-sort-numeric-down"></i> Order ID</th>
+                                        <th style="min-width: 100px;"><i class="far fa-calendar-day"></i> Date</th>
+                                        <th class="all-link"><i class="far fa-link"></i>Link</th>
+                                        <th>$ Charge</th>
+                                        <th class="nowrap"><i class="far fa-play-circle"></i>  Start count</th>
+                                        <th><i class="far fa-truck-loading"></i> Quantity</th>
+                                        <th class="width-service-name"><i class="far fa-cog"></i> Service</th>
+                                        <th><i class="far fa-question-circle"></i> Status</th>
+                                        <th><i class="far fa-hourglass-half"></i> Remains</th>
+                                      	<th><i class="far fa-location"></i> Actions</th>
+                                    </tr>
+          </thead>
+          <tbody>
+
+            {% for order in orders %}
+              <tr>
+<td>
+<span id="order-{{ order['id'] }}">{{ order['id'] }}</span>
+                                        <a>
+                                            <span
+                                                data-clip="true"
+                                                title="Order Id copied"
+                                                data-clipboard-action="copy"
+                                                data-clipboard-target="#order-{{ order['id'] }}"
+                                                class="fas fa-clone"></span>
+                                        </a>
+
+                                        
+{% if order['order_where'] == "api"  %}<a class="btn btn-actions">Api</a>{% endif %} </td>
+                <td>{{ order['date'] }}</td>
+                <td width="20%"><a target="_blank" href="{{ order['link'] }}">{{ order['link'] }}</a></td>
+<td><div style="width:90px;">{{order["charge"]}}</div></td>
+                <td class="nowrap">{{ order['start_count'] }}</td>
+                <td>{{ order['quantity'] }}</td>
+                <td><div class="hideextra" style="width:300px;">{{ order['service'] }}</div></td>
+                <td>{{ order['status'] }}<br> {% if settings['reorder']  ==  1 %} 
+       <div class="btn-report c-pointer mt-3 mt-lg-0" data-toggle="tooltip" data-placement="top" title="Place Same Order Again">
+  <a href="/?category_id={{order['category_id']}}&service_id={{order['service_id']}}" class="btn btn-success" style="background-color: #22c8fe65; border-color: var(--main-color)">
+    <i class="fas fa-redo"></i> Reorder
+  </a>
+</div>{% endif %}</td>
+                <td>{{ order['remains'] }}</td>
+               {% if order.duration %}
+            <td style="margin-top: 5px; font-size: 12px;">
+                {{ order.duration }}
+            </td>
+        {% endif %}
+<td>
+{% if order["refillButton"] == "2" %}
+{% if order['status'] == "Completed"  %}
+
+{% if order['show_refill'] == "true"  %}
+<a href="orders/refill/{{order['id']}}" class="btn btn-sm refill-button">Refill</a>
+<br><br>
+{% endif %}
+{% endif %}
+{% endif %}
+{% if order["refillButton"] == "3" %}
+
+{% if order['status'] == "Completed"  %}
+
+{% if order['show_refill'] == "true"  %}
+  <button data-tippy-content="Refill will be available in {{order['refillTimeLeft']}}" class="btn btn-sm refill-button">Refill</button>
+{% endif %}
+{% endif %}
+{% endif %}
+{% if order["refillButton"] == "4" %}
+
+
+
+{% if order['status'] == "Completed"  %}
+
+{% if order['show_refill'] == "true"  %}
+<button type="button" class="btn btn-sm refill-button" disabled="true">{{"Refilling"}}</button>
+{% endif %}
+{% endif %}
+{% endif %}
+
+{% if order['cancelButton']   == true %}
+         
+
+
+                   <a href="orders/cancel/{{order['id']}}" class="btn btn-actions bg-danger">cancel</a>
+               {% endif %}
+
+                 </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+
+      {% if pagination["count"] > 1 %}
+        <ul class="pagination">
+
+          {% if pagination["current"] != 1 %}
+            <li>
+              <a class="btn btn-actions" href="orders/{{ status }}/{{ pagination["previous"] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">«</span>
+              </a>
+            </li>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 7 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['count'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for page in 1..pagination["count"] %}
+            {% if page >= (pagination['current']-l) and page <= (pagination['current']+r) %}
+              <li{% if page == pagination['current'] %} class="active" {%endif%}><a class="btn btn-actions" 
+ href="orders/{{ status }}/{{ page }}{% if search %}?search={{ search }}{% endif %}">{{ page }}</a></li>
+            {%endif%}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['count'] %}
+            <li>
+              <a class="btn btn-actions" href="orders/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">»</span>
+              </a>
+            </li>
+          {% endif %}
+
+        </ul>
+      {% endif %}
+
+    </div>
+   </div></div>
+   </div></div></div></div></div>
+   </div</div></div>
+   </div></div></div>
+   </div>
+ <div class="divider-top"></div>
+        <div class="divider-bottom"></div>
+        <div class="container-fluid">
+ {% if contentText2 %}
+ <div class="card mb-4">	
+{{ contentText2 }}
+</div>
+{% endif %}
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% include 'footer1.twig' %}
+
+                
+
+                       

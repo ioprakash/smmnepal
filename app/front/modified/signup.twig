@@ -1,0 +1,90 @@
+{% if settings['register_page']  ==  2 %} 
+{% include 'header.twig' %}
+<div class="inner-page ">
+    <section id="sec1" class="signupPage">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="text-center">Sign Up Now &amp; Get Digital Services</h1>
+                    <p class="text-center">{{ site["site_name"] }} running with <b style="color:#f36c21; font-weight:bold">35,000</b> Active Users So Why You Wait? Sign Up Now</p>
+                    	 {% if errorText %}
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ errorText }}
+        </div>
+      {% endif %}
+      {% if successText %}
+        <div class="alert alert-dismissible alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ successText }}
+        </div>
+      {% endif %}
+                    {  <form class="home-form form-inline" action="" method="post" id="yw0">
+                        <div class="form-group inputDiv" style="">
+                            <input type="text" class="form-control" id="firstname" name="name" value="{{ data['name'] }}" placeholder="Full Name">
+                            <p class="help-block help-block-error"></p>
+                        </div>
+                        <div class="form-group inputDiv mr-l">
+                        <input type="text" class="form-control" id="username" name="username" value="{{ data['username'] }}" placeholder="Username" required>
+                            <p class="help-block help-block-error"></p>
+                        </div>
+                        <div class="form-group inputDiv">
+                           <input type="email" class="form-control" id="email" name="email" value="{{ data['email'] }}" placeholder="Email" required>
+                            <p class="help-block help-block-error"></p>
+                        </div>
+                        <div class="form-group inputDiv mr-l noAfter">
+                         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <p class="help-block help-block-error"></p>
+                        </div>
+                        <div class="form-group inputDiv ">
+                         <input type="password" class="form-control" id="confirm" name="password_again" placeholder="Confirm password">
+                            <p class="help-block help-block-error"></p>
+                        </div>
+                        
+                        <div class="form-group inputDiv mr-l noAfter" style="">
+                          <input type="text" class="form-control" id="skype" name="telephone" value="{{ data['telephone'] }}"placeholder="Phone/Whatsapp Number">
+                            <p class="help-block help-block-error"></p>
+                        </div>
+                       
+                      
+                     <div class="checkbox">
+            <label>
+              <input type="checkbox" name="terms" value="1" checked> {{ lang['signup.accept_terms_text'] }}
+            </label>
+          </div>
+		   {% if captcha %}
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+            </div>
+          {% endif %}
+                        <input type="hidden" name="singup" value="Sign Up" />
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                       
+                       
+                      <div style="display:none;">
+
+<div class="checkbox text-center" style="color:#ffffff;">
+                            <label>
+                                <input type="checkbox" class="terms-accept-checkbox" name="tnc" value="1"> I have read and agreed with <a href="/terms">Terms</a> 
+                            </label>
+                        </div>
+
+</div>
+                        <div class="text-center" style="color:#ffffff;">Do you have an account? <a href="/">Login</a></div>
+                    </form>
+                </div>
+                <div class="col-sm-12">
+                    <img class="shop-img" src="https://i.imgur.com/W6S4hMS.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="cloudy-wrap">
+            <img class="cloudy-img" src="https://i.imgur.com/wkZRJIb.png" alt="">
+            <img class="top-g-img" src="https://i.imgur.com/nI8yt32.png" alt="">
+        </div>
+    </section>
+
+
+</div>
+{% include 'footer.twig' %}
+{% endif %} 

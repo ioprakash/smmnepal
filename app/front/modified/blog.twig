@@ -1,0 +1,72 @@
+{% include 'header.twig' %}
+<br><br><br><br><br><br>
+<div class="container my-5">
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-md-4 mb-4">
+            <div class="card blog-card h-100">
+                
+                {% if blog["image_file"] %}
+                <a href="/blog/{{ blog["blog_get"] }}">
+                    <img src="{{ blog["image_file"] }}" alt="{{ blog["title"] }}" class="card-img-top">
+                </a>
+                {% endif %}
+
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-center mb-3">{{ blog["title"] }}</h5>
+                    
+                    <div class="mt-auto">
+                        <a href="/blog/{{ blog["blog_get"] }}" class="btn btn-read-more w-100">
+                            Read More →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+.blog-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+}
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.blog-card img {
+    max-height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.blog-card:hover img {
+    transform: scale(1.03);
+}
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+.btn-read-more {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 10px;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+.btn-read-more:hover {
+    background: linear-gradient(135deg, #0056b3, #003f88);
+    color: #fff;
+}
+</style>
+
+<br><br><br><br><br><br><br><br><br>
+{% include 'footer.twig' %}

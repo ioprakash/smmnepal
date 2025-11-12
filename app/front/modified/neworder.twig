@@ -1,0 +1,1093 @@
+{% include 'header1.twig' %}
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+<style>
+  .alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.index.authorized form .bootstrap-select .btn-default {
+	background-color: #fff;
+	border-color: #c0c5e4;
+	box-shadow: 0 0 20px 0 #0000001a;
+	border-radius: 4px;
+	color: #1e223f;
+	padding: 14px 12px;
+	height: 50px !important;
+	padding: 0px !important;
+ }
+
+ .index.authorized form .bootstrap-select .btn-default:focus {
+	border-color:none !important;
+	outline: none !important;
+	
+ }
+ .index.authorized form .bootstrap-select .dropdown-menu.open{ 
+min-width: 100% !important;
+width: 100% !important;
+max-width: 100% !important;
+ }
+
+ .bootstrap-select .dropdown-toggle .filter-option{ 
+display: flex;
+align-items: center;
+padding-left: 20px;
+background-color: #fff;
+	border:1px solid #c0c5e4;
+	
+	border-radius: 4px;
+	color: #1e223f;
+	padding: 14px 12px;
+	height: 50px !important;
+
+}
+
+ 
+div.dropdown button#dropdownMenu3, div.dropdown button#order-dd {
+	background-color: #fff;
+	border-color: #c0c5e4;
+	box-shadow: 0 0 20px 0 #0000001a;
+	border-radius: 10px;
+	color: #1e223f;
+	padding: 14px 12px;
+	height: auto;
+	display: none;
+ }
+ .index.authorized .bootstrap-select .dropdown-menu li a{
+	cursor: pointer;
+	border-bottom: 1px solid #ccc;
+	padding: 6px 11px;
+	background: transparent !important;
+	color: #1b1a1a !important;
+ } 
+
+ .index.authorized form .dropdown-menu.open {
+	max-width: 100%;
+ position: absolute;
+ }
+.index.authorized  .select2-container--default .select2-selection--single {
+    color: #8a8fa2 !important;
+    height: 50px !important;
+    margin-top: 10px !important;
+    border-color: #eaf0f7 !important;
+    display: flex !important;
+   box-shadow: 0 0 20px 0 #0000001a;
+    align-items: center !important;
+   border-color: #c0c5e4 !important;
+}
+.index.authorized  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 20px !important;
+    right: 1px;
+    width: 20px;
+}
+.index.authorized .select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #aaa;
+display:none !important;
+}
+
+ .index.authorized .select2-container--default .select2-results>.select2-results__options {
+	max-height: 350px;
+	overflow-y: auto;
+	margin-top: 6px;
+ }
+.index.authorized .select2-results__option[aria-selected] {
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding: 6px 11px;
+    background: transparent !important;
+    color: #1b1a1a !important;
+}
+.index.authorized .select2-results__option:hover{
+    color: #1b1a1a !important;
+    background: transparent;
+}
+.index.authorized form .select2-container{
+    color: #8a8fa2 !important;
+    height: 50px !important;
+    margin-top: 10px !important;
+    border-color: #eaf0f7 !important;
+    width: 100% !important;
+}
+.select2-container--default .select2-results>.select2-results__options::-webkit-scrollbar{
+    width: 2px;
+}
+.select2-container--default .select2-results>.select2-results__options::-webkit-scrollbar-thumb{
+ background-color: gray;
+}
+  .fa-youtube {
+      color:#c4302b
+    }
+ 
+    .fa-facebook-square {
+      color:#3b5998
+    }
+  /*.fa-instagram {
+      color:#8a3ab9
+  }*/
+  	.fa-instagram{
+	background: #d6249f !important;
+  	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+  	box-shadow: 0px 3px 10px rgba(0,0,0,.25) !important;
+}
+  .fab.fa-twitch {
+      color:#000 !important;
+    }
+  	.fa-gift {
+      color:#c4302b
+    }
+    .fa-twitter {
+      color:#00acee
+  }
+    .fa-telegram-plane {
+      color:#00acee
+    }
+    .fa-tiktok {
+      color:#010101
+    }
+  .fa-chart-line-down {
+      color:#00D485
+    }
+  .fa-gem {
+      color:#0029FF
+    }
+  	.fa-star{
+ 	  color:#FF00F3
+  }
+    .fa-telegram {
+      color:#08c
+    }
+    .fa-soundcloud {
+      color:#f70
+    }
+    .fa-spotify {
+      color:#81b71a
+    }
+    .fa-reddit {
+      color:#ff6314
+    }
+    .fa-google-plus {
+      color:#db4a39
+    }
+    .fa-tumblr-square {
+      color:#34526f
+    }
+    .fa-mixcloud {
+      color:#52aad8
+    }
+    .fa-vk {
+      color:#1a4b78
+    }
+    .fa-snapchat-square {
+      color:#fffc00
+    }
+    .fa-vimeo {
+      color:#86c9ef
+    }
+    .fa-linkedin {
+      color:#0e76a8
+    }
+    .fa-tumblr-square {
+      color:#34526f
+    }
+    .fa-mixcloud {
+      color:#52aad8
+    }
+    .fa-dailymotion {
+      color:#00d2f3
+    }
+    .fa-heart {
+      color:#891984
+    }
+    .fa-snapchat-square {
+      color:#fffc00
+    }
+    .fa-vimeo-v {
+      color:#86c9ef
+    }
+    .fa-imdb {
+      color:#f3ce13
+    }
+    .fa-discord {
+      color:#7289da
+    }
+    .fa-napster {
+      color:#000
+    }
+    .fa-vk {
+      color:#1a4b78
+    }
+	div.dropdown button#dropdownMenu3, div.dropdown button#order-dd {
+        background-color: #fff;
+        border-color: #c0c5e4;
+        box-shadow: 0 0 20px 0 #0000001a;
+        border-radius: 10px;
+        color: #1e223f;
+        padding: 14px 12px;
+        height: auto;
+    }
+  	div.dropdown button#dropdownMenu3 #order-category, div.dropdown button#order-dd #order-services {
+        display: block;
+        width: calc(100% - 20px);
+    }
+  	div.dropdown button#dropdownMenu3 i.fas.fa-angle-down.float-right, div.dropdown button#order-dd i.fas.fa-angle-down.float-right {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+  	#category-drop, #orders-drop {
+        width: 100%;
+        max-height: 350px;
+        overflow-y: auto;
+    }
+  	#category-drop #order-cItem, #orders-drop #order-sItem {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 6px 11px;
+        background: transparent;
+        border: 0;
+            border-bottom-color: currentcolor;
+            border-bottom-style: none;
+            border-bottom-width: 0px;
+        border-bottom: 1px solid #ccc;
+    }
+  	#order_charge.icon-form-group {
+        position: relative;
+    }
+  	#order_charge.icon-form-group input {
+        padding-left: 30px;
+    }
+  	#order_charge.icon-form-group .icon {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+    }
+</style>
+<div id="page-wrapper">
+  <div class="inner-page-wrapper">
+    <div class="container-fluid neworder">
+      <div class="row">  
+        <div class="alert alert-success" role="alert">
+          
+          <!-- <center style="font-family: Arial, sans-serif; font-size: 16px; margin-top: 10px;">
+            For Support Contact 
+            <a href="https://t.me/SmmNepalSupport" target="_blank" style="text-decoration: none; color: #0088cc; font-weight: bold;">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+              Telegram Support
+            </a> 
+            Directly 
+            <a href="https://t.me/SmmNepalSupport" target="_blank" style="text-decoration: none; color: #0088cc; font-weight: bold;">
+              @SmmNepalSupport
+            </a>
+          </center> -->
+
+
+<center style="font-family: Arial, sans-serif; font-size: 16px; margin-top: 10px;">
+  For Support Contact &nbsp;
+  <a href="https://wa.me/" target="_blank" style="text-decoration: none; color: #25D366; font-weight: bold;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width: 18px; height: 18px; vertical-align: middle; margin-right: 5px;">
+    WhatsApp: 
+  </a>
+</center>
+
+
+          
+</div><div class="col-sm-12">
+            <div id="content-desktop">
+              <div class="row stat">
+                  <div class="col-sm-3 stat-wrap">
+                      <div class="media">
+                          <div class="media-left">
+                              <img class="media-object" src="https://i.postimg.cc/xCdkkZMt/Layer-111.png" alt="">
+                          </div>
+
+                          <div class="media-body">
+                              <h4 class="media-heading">Total Orders</h4>
+                              <!-- <p class="media-desc">6926</p> -->
+                              <p class="media-desc"style="margin-bottom: 0;">{{ totalorders }}</p>
+
+
+                          </div>
+                          <div class="bottom-grad grad1 "></div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-3 stat-wrap">
+                      <div class="media">
+                          <div class="media-left">
+                              <img class="media-object" src="https://i.postimg.cc/TwHKnccG/Layer-111231.png" alt="">
+                          </div>
+                          <div class="media-body">
+                              <h4 class="media-heading">You Have Spent</h4>
+                              <p class="media-desc" style="margin-bottom: 0;">{{ user["spent"] }}</p>
+                          </div>
+                          <div class="bottom-grad grad2"></div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-3 stat-wrap reseller">
+
+                      <div class="media">
+                          <div class="media-left">
+                              <img class="media-object" src="https://i.postimg.cc/zvbV7Rdh/Layer-111213231.png" alt="">
+                          </div>
+                          <div class="media-body">
+                              <h4 class="media-heading">Resellers Program</h4>
+                              <p class="media-desc" style="margin-bottom: 0;">Earn Money</p>
+                              <small><a href="/giveaway">Click Here</a></small>
+                          </div>
+                          <div class="bottom-grad grad3"></div>
+                      </div>
+                      <!-- <a href="/giveaway" class="reseller-box">Get your own panel!</a> -->
+                  </div>
+
+                  <div class="col-sm-3 stat-wrap acct-status">
+                      <a type="button" data-toggle="modal" data-target="#exampleModalnew">
+                          <div class="media">
+                              <div class="media-left">
+                                  <img class="media-object" src="https://i.postimg.cc/Y05jsqVs/Layer-11121321134531.png" alt="">
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">Account Status</h4>
+                                  <p class="media-desc account_status_span" style="text-transform: uppercase;margin-bottom: 0;">
+                                      <!-- New - 50$
+                        Junior - 100$
+                        Regular - 1K$
+                        frequent - 2.5K
+                        Elite - 10K
+                        VIP - 15K
+                        Master - 50k -->
+
+                                  </p>
+                              </div>
+                              <div class="bottom-grad grad4"></div>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+      	<div class="col-sm-7">
+      		<div class="well">
+      			<ul class="nav nav-tabs dash-tabs">
+                  <li role="presentation" class="active"><a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" aria-expanded="false" href="#neworder"><i class="fas fa-plus-circle"></i> New order</a></li>
+                  <li role="presentation"><a href="/massorder"><i class="fas fa-clone"></i> Mass order</a></li>
+                  <!-- <li role="presentation"><a class="nav-link" id="home-tab" data-toggle="tab" href="#accstatus" role="tab" aria-controls="home" aria-selected="true" aria-expanded="true"><i class="fas fa-info-circle"></i> Account Status</a></li> -->
+                  <li class="pull-right"><button class="btn btn-primary" data-toggle="modal" data-tooltip="tooltip" data-placement="left" data-target="#exampleModal" title="" data-original-title="Click me !!" aria-describedby="tooltip832309">
+                    <i class="fas fa-info"></i>
+                    <span class="like-tootips">click me !!</span>
+                    <div class="tooltip-arrow" style="top: 53%;"></div>
+                    </button></li>
+                </ul>
+              	
+              	<div class="tab-content" id="myTabContent">
+              		<div class="tab-pane fade active in" id="neworder" role="tabpanel" aria-labelledby="home-tab">
+              			        {% if error %}
+              <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">✕</button>
+                {{ errorText }}
+              </div>
+              {% endif %}
+
+              {% if data["order"]["success"] == 1 %}
+              <div class="alert alert-dismissible alert-success">
+                <strong>{{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }}<br>
+                <strong>{{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }}<br>
+                <strong>{{ lang["neworder.success.link"] }}: </strong> {{ data['order']['link'] }}<br>
+                <strong>{{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['quantity'] }}<br>
+                <strong>{{ lang["neworder.success.charge"] }}: </strong> {{ data['order']['price'] }}<br>
+                <strong>{{ lang["neworder.success.balance"] }}: </strong> {{ data['order']['balance'] }}<br>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">✕</span>
+                </button>
+              </div>
+              {% endif %}
+
+              {% if data["order"]["success"] == 2 %}
+              <div class="alert alert-dismissible alert-success">
+                <strong>{{ lang["neworder.success.id"] }}: </strong> {{ data['order']['id'] }}<br>
+                <strong>{{ lang["neworder.success.service"] }}: </strong> {{ data['order']['service'] }}<br>
+                <strong>{{ lang["neworder.success.username"] }}: </strong> {{ data['order']['link'] }}<br>
+                <strong>{{ lang["neworder.success.quantity"] }}: </strong> {{ data['order']['min'] }} - {{ data['order']['max'] }}<br>
+                <strong>{{ lang["neworder.success.posts"] }}: </strong> {{ data['order']['posts'] }}<br>
+                <strong>{{ lang["neworder.success.delay"] }}: </strong> {{ data['order']['delay'] }}<br>
+              </div>
+              {% endif %}
+              
+                        <form method="post" action="">
+                            <div class="form-hidden form-group">
+                                <label class="control-label" for="orderCategory">Category</label>
+                               <select class="form-control" id="neworder_category" name="categories" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-category-container" tabindex="-1" aria-hidden="true">
+{{ category_html_simplify }}
+
+</select>
+                              <div class="dropdown">
+                                <button class="form-control text-left" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                  <span id="order-category"></span>
+                                  <i class="fas fa-angle-down float-right" aria-hidden="true"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenu3" id="category-drop">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="OrderService">Service</label><br><b>ID : <span class="neworder_services"></span></b>
+                               <select class="form-control" id="neworder_services" name="services" data-select="true" data-select-search="true" data-select-search-placeholder="Search" data-select-container="#select-service-container" tabindex="-1" aria-hidden="true">
+<option value="1">No services found in this category</option>
+</select>
+                              	<div class="dropdown"  style="display:none;">
+                                    <button class="form-control text-left" type="button" id="order-dd" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" >
+                                      <span id="order-services"></span>
+                                      <i class="fas fa-angle-down float-right" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="order-dd" id="orders-drop">
+                                    </div>
+                                </div>
+                            </div>
+                      
+<div id="neworder_fields"></div>
+  <div class="form-group" id="charge_div">
+      <label for="charge" class="control-label">Charge</label>
+      <input type="text" class="form-control" id="charge" readonly>
+    </div>
+                            <input type="hidden" name="place_order" value="place_order"><div class="card-top-blk"><img src="https://res.cloudinary.com/darq0uxnz/image/upload/v1737121743/SmmNEPAL/warning_d4if49.png" alt="" style="width:50px; height:40px;"><h4><span id="serviceId" style="font-weight: bold;">Notes</span>
+<value id="serviceName">Warning</value> <value style="font-size: 15px;font-weight: 100;" id="serviceName"></value>
+</h4></div><div class="" style="padding: 15px; margin-bottom: 20px;border: 1px solid transparent;border-radius: 4px;color: black;background-image: linear-gradient( to right,#f5f6fa, #dcdde1);border-color: #13151e;">
+ <span style="font-size:18px;color:black;">1-</span><span>  You Must Read The Description Before purchasing.</span>
+<br>
+ <span style="font-size:18px;color:black;">2-</span><span>  The Profile Must Be Public, Not Private.</span>
+<br>
+ <span style="font-size:18px;color:black;">3-</span><span>  Don't Place More Then 1 Order For Same Link at the Same Time.</span>
+                      <br>
+ <span style="font-size:18px;color:black;">4-</span><span>  You Shouldn't Complain Before The Order Deadline.</span>
+</div><button type="submit" class="dash-btn" onclick="disable_button(this)" name="place_order">Buy Service</button>
+                        </form>
+						<script>
+						function disable_button(e){
+							e.style.display = "none";
+						}
+						</script>
+              		</div>
+              	</div>
+      		</div>
+      	</div>
+      	<div class="col-sm-5">
+      		<div class="well">
+
+              <ul id="myTabs" class="video-tabs nav nav-tabs dash-tabs" role="tablist" data-tabs="tabs">
+                  <li class="active"><a href="#abc" data-toggle="tab" aria-expanded="true"><i class="fas fa-play-circle"></i>Video Tutorial</a></li>
+                  <li class=""><a href="#bcd" data-toggle="tab" aria-expanded="false"><i class="fas fa-play-circle"></i>Get In Touch</a></li>
+
+              </ul>
+
+              <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade active in" id="abc">
+                      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                              <div class="panel-heading" role="tab" id="headingOne">
+                                  <h4 class="panel-title">
+                                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How To Place An Order
+                                <span> </span>
+                              </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                  <div class="panel-body">
+                                      <!-- <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="auto" frameborder="0"></iframe> -->
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel panel-default">
+                              <div class="panel-heading" role="tab" id="headingTwo">
+                                  <h4 class="panel-title">
+                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How To Use Drip-Feed
+                                <span></span>
+                              </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                  <div class="panel-body">
+                                      <!-- <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="auto" frameborder="0"></iframe> -->
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel panel-default">
+                              <div class="panel-heading" role="tab" id="headingThree">
+                                  <h4 class="panel-title">
+                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How To Load Funds
+                                <span></span>
+                              </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                  <div class="panel-body">
+                                      <!-- <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="auto" frameborder="0"></iframe> -->
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel panel-default">
+                              <div class="panel-heading" role="tab" id="headingfour">
+                                  <h4 class="panel-title">
+                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                Reseller Program Tutorial
+                                <span></span>
+                              </a>
+                                  </h4>
+                              </div>
+                              <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                  <div class="panel-body">
+                                      <!-- <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="auto" frameborder="0"></iframe> -->
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="panel panel-default">
+                              <div class="panel-heading" role="tab" id="headingfive">
+                                  <h4 class="panel-title">
+                                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+                                Refer &amp; Earn Tutorial
+                                <span></span>
+                              </a>
+                                  </h4>
+                              </div>
+                              <div id="collapsefive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                  <div class="panel-body">
+                                      <!-- <iframe src="https://www.youtube.com/embed/5Peo-ivmupE" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" width="100%" height="auto" frameborder="0"></iframe> -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="bcd">
+                      <div class="get-in-touch">
+                          <div class="contactInfo">
+                              <p>Need help? We are always ready to help you in any of your needs! Choose the best way to get in touch and we'll contact you ASAP!</p>
+                          </div>
+                          <h5>Support Ticket <span>(easiest &amp; fastest)</span></h5>
+                          <a class="openTicket" href="/tickets">Open New Ticket</a>
+                          <div class="media">
+                              <div class="media-left">
+                                  <a href="https://wa.me/+9779808482071" style="color:#24cc63;">
+                              <i class="fab fa-whatsapp"></i>
+                            </a>
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">WhatsApp</h4>
+                                  <a href="">+9779808482071</a>
+                              </div>
+                          </div>  <div class="media">
+    <div class="media-left">
+        <a href="https://s.imoim.net/8bBIvB" style="color:#24cc63;">
+            <img src="https://i.imgur.com/j29W2ju.png" alt="imo App" style="width: 80px; height: 74px;">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">imo App</h4>
+        <a href="https://s.imoim.net/8bBIvB">+9779808482071</a>
+    </div>
+</div>  <div class="media">
+                              <div class="media-left">
+                                  <a href="https://t.me/SMMNepalcom" style="color:#24cc63;">
+                              <i class="fab fa-telegram"></i>
+                            </a>
+                              </div>
+                          
+                              <div class="media-body">
+                                  <h4 class="media-heading">Telegram</h4>
+                                  <a href="https://t.me/SMMNepalcom">Join Telgram </a>
+                              </div>
+                          </div>
+                          <div class="media">
+                              <div class="media-left">
+                                  <a href="/cdn-cgi/l/email-protection#c4b7a9a9aaa1b4a5a8eaa7aba984a3a9a5ada8eaa7aba9" style="color:#5ee78d;">
+                              <i class="fa fa-envelope"></i>
+                            </a>
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">Email</h4>
+                                  <a href="/cdn-cgi/l/email-protection#0d7e606063687d6c614d6a606c6461236e6260"><span class="__cf_email__" data-cfemail="4b382626252e3b2a27652824260b2c262a222765282426">[email&#160;protected]</span></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+          <div class="well">
+              <div class="dash-title">
+                  <h2>Updates</h2>
+              </div>
+              <div class="updates-wrap">
+                  <div class="single-update">
+                      <div class="single-update-bullet bullet-one ">
+                          <span>01</span>
+                      </div>
+                      <div class="single-update-title">
+                          <p><b>Update Coming&nbsp;</b></p> <span>09 Feb 2024</span>
+                      </div>
+                      <div class="single-update-desc">
+                          <p><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTNzMHBqN200dDQ4Z3Bqcmh2MDM4OXVwbGF0cmtlNHcweTVzMzQxbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/azjux6zMBW3cWxK21P/giphy.gif"></p>
+                      </div>
+                  </div>
+                
+           
+                
+                
+				  <p>Top content </p>
+
+              </div>
+
+          </div>
+      	</div>
+      </div>
+<!-- why us
+                
+                <div class="col-sm-5">
+        <div class="well">
+          <div class="dash-title">
+            <ul id="myTabs" class="video-tabs nav nav-tabs dash-tabs" role="tablist" data-tabs="tabs">
+                <li class="active"><a href="#abc" data-toggle="tab" aria-expanded="true"><i class="fa fa-question-circle"></i> Why Us? </a></li></ul>
+
+
+
+            <center>
+                <img class="feat-bulb aos-init aos-animate" src="https://res.cloudinary.com/smmnepal/image/upload/v1644907615/SMMNepal/light_yey9pp.png" alt="bulb" data-aos="fade-up" data-aos-duration="2000">
+            </center>
+
+
+            <ul class="feature-list">
+                <li data-aos="fade-up" data-aos-duration="2000" class="aos-init aos-animate"><p>  Cheapest Services  </p><span class="feat-icon"><i class="far fa-percentage"></i></span></li>
+                <li data-aos="fade-up" data-aos-duration="2000" class="aos-init aos-animate"><p>  Fast Delivery  </p><span class="feat-icon"><i class="far fa-fighter-jet"></i></span></li>
+                <li data-aos="fade-up" data-aos-duration="2000" class="aos-init aos-animate"><p>  Support 24/7  </p><span class="feat-icon"><i class="fas fa-headset"></i></span></li>
+                <li data-aos="fade-up" data-aos-duration="2000" class="aos-init aos-animate"><p>  Payment Methods  </p><span class="feat-icon"><i class="far fa-money-bill-wave"></i></span></li>
+                <li data-aos="fade-up" data-aos-duration="2000" class="aos-init aos-animate"><p>  Friendly Dashboard  </p><span class="feat-icon"><i class="far fa-phone-laptop"></i></span></li>
+                <li data-aos="fade-up" data-aos-duration="2000" class="aos-init aos-animate"><p>  Affiliate System  </p><span class="feat-icon"><i class="far fa-user-chart"></i></span></li></ul>
+
+        </div>
+    </div>
+  
+</div>
+
+     why us end -->
+      
+      
+      
+	  <!-- precautionary modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+              <img src="{{ site["logo"] }}"  alt="ftr-logo" width="300" height="150" title="SmmNepal.com" >
+
+            </div>
+            <div class="modal-body">
+              <h4 class="modal-title" id="myModalLabel">Information</h4>
+              <p>⚠️ Do Not place multiple orders for the</p>
+
+              <p>same link at the same time, wait until the first order will be Completed / Canceled or Partial</p>
+
+              <p>before placing a new one. Will be NO cancellation and No refund in such cases. ( Also: Do not place the same orders twice until the first one will be</p>
+
+              <p>Completed/Canceled/Partial. NO cancellation will be made and both orders will be marked as "Completed"! ). We cannot deliver you the correct number of followers/likes/views etc. in such cases. We</p>
+
+              <p>will not refund for these orders. Please keep attention. In case your Order has been dropped, please wait for us to Refill or Cancel or Partial before to make a new order. We will not cancel any orders in this case. Please keep attention!. ⚠️The system is working according to the start count and marks your orders as completed after you will receive enough quantity. So, Don't ask us to cancel or anything else with the reason:" views/Likes/subs... come from my real users, my fans, another sellers etc. Please keep attention!</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>var services_mechanism = 1; 
+		var services_array = "{\"symbol\":\"$\",\"services_list_type\":4,\"services_search\":1,\"services\":[],\"services_name\":[],\"services_new_style\":0,\"selected\":{\"category\":0,\"service\":0},\"services_mechanism\":1}"; 
+		var category_array = "[]"; </script>
+
+<!-- modal -->
+<div class="modal fade" id="exampleModalnew" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="https://imgur.com/2N3uf5j.png"  alt="ftr-logo" width="300" height="150" title="SmmNepal.com" style="margin: auto;display: block;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVEN'T SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>NEW</p>
+                                    <p>$50</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="acc-status-body">
+                  <p>24/7 Ticket Support</p>
+                  <p>5% Payments Bonus**</p>
+                  <p class="no">Paypal Auto Enabled</p>
+                  <p class="no">500$ Montly Lottery***</p>
+                  <p class="no">24/7 Phone / Whatsapp / Skype Support</p>
+                  <p class="no">Custom Services </p>
+                  <p class="no">Early Notification On New Services</p>
+                  <p class="no">Support Handled By The Admins</p>
+                </div> -->
+                                <div class="acc-status-body">
+                                    <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p class="no">Priority Ticket Support By Team</p>
+                                    <!-- <p class="no">Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p class="no">7% bonus instead of 5% for regular if available</p>
+                                    <p class="no">2-5% Discount Available</p>
+                                    <p class="no">VIP Whatsapp / Calling support</p>
+                                    <p class="no">20$ Monthly Lottery for 5 Random Users</p>
+                                    <p class="no">Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p class="no">Personal Assistance</p>
+                                    <p class="no">Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                  
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>JUNIOR</p>
+                                    <p>$100</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                    <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p class="no">Priority Ticket Support By Team</p>
+                                    <!-- <p class="no">Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p class="no">7% bonus instead of 5% for regular if available</p>
+                                    <p class="no">2-5% Discount Available</p>
+                                    <p class="no">VIP Whatsapp / Calling support</p>
+                                    <p class="no">20$ Monthly Lottery for 5 Random Users</p>
+                                    <p class="no">Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p class="no">Personal Assistance</p>
+                                    <p class="no">Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>Regular</p>
+                                    <p>$1000</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                     <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p>Priority Ticket Support By Team</p>
+                                   <!--  <p class="no">Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p class="no">7% bonus instead of 5% for regular if available</p>
+                                    <p class="no">2-5% Discount Available</p>
+                                    <p class="no">VIP Whatsapp / Calling support</p>
+                                    <p class="no">20$ Monthly Lottery for 5 Random Users</p>
+                                    <p class="no">Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p class="no">Personal Assistance</p>
+                                    <p class="no">Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>Frequent</p>
+                                    <p>$2500</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                     <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p>Priority Ticket Support By Team</p>
+                                    <!-- <p>Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p class="no">7% bonus instead of 5% for regular if available</p>
+                                    <p class="no">2-5% Discount Available</p>
+                                    <p class="no">VIP Whatsapp / Calling support</p>
+                                    <p class="no">20$ Monthly Lottery for 5 Random Users</p>
+                                    <p class="no">Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p class="no">Personal Assistance</p>
+                                    <p class="no">Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>Elite</p>
+                                    <p>$10000</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                    <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p>Priority Ticket Support By Team</p>
+                                   <!--  <p>Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p>7% bonus instead of 5% for regular if available</p>
+                                    <p class="no">2-5% Discount Available</p>
+                                    <p class="no">VIP Whatsapp / Calling support</p>
+                                    <p class="no">20$ Monthly Lottery for 5 Random Users</p>
+                                    <p class="no">Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p class="no">Personal Assistance</p>
+                                    <p class="no">Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>VIP</p>
+                                    <p>$15000</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                     <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p>Priority Ticket Support By Team</p>
+                                   <!--  <p>Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p>7% bonus instead of 5% for regular if available</p>
+                                    <p>2-5% Discount Available</p>
+                                    <p>VIP Whatsapp / Calling support</p>
+                                    <p>20$ Monthly Lottery for 5 Random Users</p>
+                                    <p class="no">Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p class="no">Personal Assistance</p>
+                                    <p class="no">Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>Master</p>
+                                    <p>$50000</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                     <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p>Priority Ticket Support By Team</p>
+                                  <!--   <p>Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p>7% bonus instead of 5% for regular if available</p>
+                                    <p>2-5% Discount Available</p>
+                                    <p>VIP Whatsapp / Calling support</p>
+                                    <p>20$ Monthly Lottery for 5 Random Users</p>
+                                    <p>Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p>Personal Assistance</p>
+                                    <p>Early Notification On New Services</p>
+                                    <p class="no">Hidden Services</p>
+                                    <p class="no">Special Discount By The Admins</p>
+                                    <p class="no">Support Handled By The Admins</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-sm-3">
+                        <div class="acc-status-wrap">
+                            <p class="top-txt">HAVE SPENT MORE THAN</p>
+                            <div class="acc-status-iiner">
+                                <div class="acc-status-head">
+                                    <p>PRO Master</p>
+                                    <p>$90000</p>
+                                </div>
+                                <div class="acc-status-mid">
+                                    <div class="acc-status-mid-left">
+                                        <span><i class="fas fa-check-circle"></i></span>
+                                    </div>
+                                    <div class="acc-status-mid-right">
+                                        <p>Active</p>
+                                        <div class="acc-p-bar"><span class="acc-p-bar-inner"></span></div>
+                                    </div>
+                                </div>
+                                <div class="acc-status-body">
+                                     <p>24/7 Ticket Support </p>
+                                    <p>5% bonus (if Available)</p>
+                                    <p>Priority Ticket Support By Team</p>
+                                <!--     <p>Free Child Panel For 1 Month🔥 (Website Like Ours</p> -->
+                                    <p>7% bonus instead of 5% for regular if available</p>
+                                    <p>2-5% Discount Available</p>
+                                    <p>VIP Whatsapp / Calling support</p>
+                                    <p>20$ Monthly Lottery for 5 Random Users</p>
+                                    <p>Paypal Manual/Auto Accepted</p>
+                                    
+                                    <p>Personal Assistance</p>
+                                    <p>Early Notification On New Services</p>
+                                    <p>Hidden Services</p>
+                                    <p>Special Discount By The Admins</p>
+                                    <p>Support Handled By The Admins</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 <!-- Code by Rajesh Sah -->
+                </div>
+                <div class="row acc-status-exp">
+                    <div class="col-sm-12">
+                        <h2 class="text-center">EXPLANATION IN DETAILS</h2>
+                        <p><b>SHORTCUTS TRICK TO GET VIP</b><br> You may purchase VIP status for a month from our services under the VIP section.</p>
+                        <p><b>NEW USER</b><br> You can get 24/7 support and 5-7% fund load bonus via Esewa, Khalti, Ime Pay, Bank, Payoneer, Paypal, Paytime Wallet, Etc... JUNIOR USER =&gt; All New user facilities and Whatsapp
+                            Support also.
+                        </p>
+                        <p><b>REGULAR USER</b><br> All Junior user facilities and You will get a Child Panel like ours! which is connected only with us and Child panel is a website like ours, Also 2-4% discount on all our
+                            services for selling on your own panel, also 7% bonus instead of 5%. In this way, you also can sell services at a very affordable price :)</p>
+                        <p><b>FREQUENT USER</b><br> All Regular user facilities and VIP Whatsapp or calling support by our agents, and Each month we will pick 5 random Frequent, Elite, VIP or Master user to win $20 to be used on the panel!
+                        </p>
+                        <p><b>ELITE USER</b><br> All Frequent user facilities and We will provide Auto/Manual PayPal payment Option, Also Best Theme Design for your child panel.</p>
+                        <p><b>VIP USER</b><br> All Elite user facilities and We will provide you Personal Assistance for your any type of help in our Website, also Early Notification on new services.</p>
+                        <p><b>PRO MASTER USER</b><br> All VIP user facilities and We will enable some Hidden Services for Master Users also admin will manage support for master users by Whatsapp or ticket anything as per Master user requirements :)</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+    {% include 'footer1.twig' %}
+    
+
+
+
+ <script type="text/javascript" src="/public/global/qri1ac173hshc2hdjc.js"></script>
+<script type="text/javascript" >
+window.modules.siteOrder = {""}; </script>
+<script type="text/javascript" >
+window.modules.select = [];   </script>
+
+<script src="public/script.js"></script>
+
+
