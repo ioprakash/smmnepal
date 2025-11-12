@@ -127,4 +127,13 @@ If you want, I can:
 - run static checks to find any other files referencing these classes.
 
 Tell me which follow-up you'd like and I'll proceed.  
+Tell me which follow-up you'd like and I'll proceed.
+
+## Running this project with Docker
+
+Tell me which follow-up you'd like and I'll proceed.
+
+```markdown
 # smmnepal
+
+``` 
