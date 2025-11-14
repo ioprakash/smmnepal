@@ -40,6 +40,9 @@
 <link rel="stylesheet" href="https://itsjavi.com/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.min.css">
 <link rel="stylesheet" href="css/admin/image-picker.css">
 	<link href="css/admin/main.css" type="text/css" rel="stylesheet">
+  <!-- DataTables CSS (adds searchable, sortable, paginated tables) -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap.min.css">
     <style>
  @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
 #loading {

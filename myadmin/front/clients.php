@@ -34,7 +34,7 @@
   
  
 <div class="clients-table">
-  <table class="table" style="border:1px solid #ddd">
+  <table class="table datatable" style="border:1px solid #ddd">
 
 
  

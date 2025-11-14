@@ -32,6 +32,9 @@
   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="//gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap.min.js"></script>
  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -58,6 +61,26 @@ var site_url  = $('head base').attr('href');
 <?php if( route(2) == "new-service" || route(2) == "new-subscription" ): echo '$(document).ready(function(){
 getProviderServices($("#provider").val(),site_url);
 });'; endif; ?>
+
+// Initialize DataTables on tables with class "datatable" (non-destructive)
+if (typeof $.fn.DataTable !== 'undefined') {
+  $('.datatable').each(function() {
+    try {
+      if (!$.fn.DataTable.isDataTable(this)) {
+        $(this).DataTable({
+          pageLength: 25,
+          lengthChange: true,
+          ordering: true,
+          autoWidth: false,
+          responsive: false,
+          language: { search: 'Filter:' }
+        });
+      }
+    } catch (e) {
+      console.warn('DataTables init failed for table', this, e);
+    }
+  });
+}
 
 
 

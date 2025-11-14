@@ -42,7 +42,7 @@
                
                     
 <div class="orders-table">
-<table class="table" id="dt">
+<table class="table datatable" id="dt">
                                 <thead>
          <tr>
             <th class="checkAll-th">

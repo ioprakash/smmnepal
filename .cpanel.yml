@@ -1,0 +1,43 @@
+---
+deployment:
+  targets:
+    - name: smmnepal
+      label: SMM Nepal Production
+      description: Deploy SMM Nepal panel to production
+      paths:
+        publish:
+          - /home/username/public_html
+      
+      pre_deployment:
+        - cp .env.example .env
+        - mkdir -p storage/logs
+        - mkdir -p storage/cache
+        - mkdir -p storage/sessions
+        - chmod -R 755 storage
+        - chmod -R 755 uploads
+        - chmod -R 755 public
+      
+      build:
+        - composer install --no-dev --optimize-autoloader
+        - npm install --legacy-peer-deps
+        - npm run build
+      
+      post_deployment:
+        - chmod 644 .env
+        - chmod -R 755 storage logs uploads public
+        - chown -R nobody:nobody storage logs uploads public
+        - php app/console migrate:fresh --seed
+      
+      exclude:
+        - .git
+        - .gitignore
+        - node_modules
+        - .env.example
+        - composer.lock
+        - package-lock.json
+        - .cpanel.yml
+        - README.md
+        - DEPLOYMENT.md
+        - tests
+        - .editorconfig
+        - .eslintrc
