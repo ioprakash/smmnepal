@@ -7,16 +7,8 @@ if ($admin["access"]["admin_access"] && $_SESSION["msmbilisim_adminlogin"] && $a
     $route[1] = "index";
   }
 
-  // Route to new dashboard for 'index' or 'dashboard'
-  if ($route[1] == "index" || $route[1] == "dashboard") {
-    require __DIR__ . '/admin-dashboard.php';
-    exit;
-  }
-
   if (!file_exists(admin_controller(route(1)))) {
     $route[1] = "index";
-    require __DIR__ . '/admin-dashboard.php';
-    exit;
   }
   $currencies_array = get_currencies_array("all");
   $categories = $conn->prepare("SELECT category_id,category_name FROM categories WHERE category_deleted=:deleted ORDER BY category_line ASC");
