@@ -35,6 +35,15 @@
   <!-- DataTables JS -->
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap.min.js"></script>
+  <!-- DataTables Buttons & Responsive JS -->
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.colVis.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap.min.js"></script>
  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -62,19 +71,33 @@ var site_url  = $('head base').attr('href');
 getProviderServices($("#provider").val(),site_url);
 });'; endif; ?>
 
-// Initialize DataTables on tables with class "datatable" (non-destructive)
+// Enhanced DataTables init: enable Buttons and Responsive when available (non-destructive)
 if (typeof $.fn.DataTable !== 'undefined') {
   $('.datatable').each(function() {
     try {
       if (!$.fn.DataTable.isDataTable(this)) {
-        $(this).DataTable({
+        var dtOptions = {
           pageLength: 25,
           lengthChange: true,
           ordering: true,
           autoWidth: false,
-          responsive: false,
+          responsive: (typeof $.fn.dataTable !== 'undefined' && typeof $.fn.dataTable.Responsive !== 'undefined'),
           language: { search: 'Filter:' }
-        });
+        };
+
+        // Enable export/column visibility buttons when Buttons extension is loaded
+        if (typeof $.fn.dataTable.Buttons !== 'undefined') {
+          dtOptions.dom = 'Bfrtip';
+          dtOptions.buttons = [
+            { extend: 'copy', text: 'Copy', className: 'btn btn-default btn-sm' },
+            { extend: 'csv', text: 'CSV', className: 'btn btn-default btn-sm' },
+            { extend: 'excel', text: 'Excel', className: 'btn btn-default btn-sm' },
+            { extend: 'print', text: 'Print', className: 'btn btn-default btn-sm' },
+            { extend: 'colvis', text: 'Columns', className: 'btn btn-default btn-sm' }
+          ];
+        }
+
+        $(this).DataTable(dtOptions);
       }
     } catch (e) {
       console.warn('DataTables init failed for table', this, e);
