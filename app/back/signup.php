@@ -39,7 +39,7 @@ if ($_SESSION["msmbilisim_userlogin"] == 1  || $user["client_type"] == 1 || $set
   $username = filter_var($username, FILTER_SANITIZE_STRING);
   $phone          = $_POST["telephone"];
   $phone = strip_tags($phone);
-  $phone = filter_var($phone, FILTER_VALIDATE_INT);
+  $phone = filter_var($phone, FILTER_SANITIZE_STRING);
   $pass           = $_POST["password"];
 
 
@@ -92,9 +92,11 @@ if ($_SESSION["msmbilisim_userlogin"] == 1  || $user["client_type"] == 1 || $set
     $errorText  = $languageArray["error.signup.terms"];
   } else {
     $apikey = CreateApiKey($_POST);
+    $reset_token = bin2hex(random_bytes(32));
+    $ref_code =  substr(bin2hex(random_bytes(18)), 5, 6);
     $conn->beginTransaction();
-    $insert = $conn->prepare("INSERT INTO clients SET name=:name, username=:username, email=:email, password=:pass, lang=:lang, telephone=:phone, register_date=:date, apikey=:key , ref_code=:ref_code, email_type=:type, balance=:spent, spent=:spent,currency_type=:currency_type");
-    $insert = $insert->execute(array("lang" => $selectedLang, "name" => $name, "username" => $username, "email" => $email, "pass" => md5($pass), "phone" => $phone, "date" => date("Y.m.d H:i:s"), 'key' => $apikey, "ref_code" => $ref_code, "type"=> 2, "spent"=> "0.0000000","currency_type"=>get_default_currency()));
+    $insert = $conn->prepare("INSERT INTO clients SET name=:name, username=:username, email=:email, password=:pass, lang=:lang, telephone=:phone, register_date=:date, apikey=:key, ref_code=:ref_code, email_type=:type, balance=:balance, spent=:spent, currency_type=:currency_type, passwordreset_token=:reset_token, discount_percentage=:discount, admin_type=2, tel_type=1, client_type=2, timezone=0, currency=1, change_email=2, resend_max=3, broadcast_id=0, balance_type=2");
+    $insert = $insert->execute(array("lang" => $selectedLang, "name" => $name, "username" => $username, "email" => $email, "pass" => md5($pass), "phone" => $phone, "date" => date("Y.m.d H:i:s"), 'key' => $apikey, "ref_code" => $ref_code, "type"=> 2, "balance"=> "0.0000", "spent"=> "0.0000", "currency_type"=>get_default_currency(), "reset_token" => $reset_token, "discount" => "0.0000"));
     if ($insert) : $client_id = $conn->lastInsertId();
 
 
@@ -227,7 +229,7 @@ $headers .= 'Bcc: '.$from . "\r\n";
 }
 
       //Auto Login
-      $row    = $conn->prepare("SELECT * FROM clients WHERE username=:username && password=:password ");
+      $row    = $conn->prepare("SELECT * FROM clients WHERE username=:username AND password=:password ");
       $row->execute(array("username" => $username, "password" => md5($pass) ));
       $row    = $row->fetch(PDO::FETCH_ASSOC);
       $access = json_decode($row["access"], true);

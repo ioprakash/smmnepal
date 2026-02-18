@@ -12,15 +12,15 @@ function getCurrencyUnit()
 function CreateApiKey($data)
 {
     global $conn;
-    $data = md5($data["email"] . $data["username"] . rand(9999, 2324332));
+    $key = md5($data["email"] . $data["username"] . rand(9999, 2324332));
     $row = $conn->prepare("SELECT * FROM clients WHERE apikey=:key ");
-    $row->execute(array("key" => $data));
+    $row->execute(array("key" => $key));
     if ($row->rowCount()) {
-        CreateApiKey();
+        // Recursive call: try again with new random value
+        return CreateApiKey($data);
     } else {
-        return $data;
+        return $key;
     }
-}
 
 function createPaymentCode()
 {
