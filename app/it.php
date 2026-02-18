@@ -6,11 +6,37 @@ ob_start();
 $config = require __DIR__.'/cn.php';
 
 try {
-  $conn = new PDO("mysql:host=".$config["db"]["host"].";dbname=".$config["db"]["name"].";charset=".$config["db"]["charset"].";", $config["db"]["user"], $config["db"]["pass"] );
-//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $dsn = "mysql:host=".$config["db"]["host"].";";
+  if (!empty($config["db"]["port"])) {
+    $dsn .= "port=".(int)$config["db"]["port"].";";
+  }
+  $dsn .= "dbname=".$config["db"]["name"].";charset=".$config["db"]["charset"].";";
+  $pdoOptions = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+  ];
+  $conn = new PDO($dsn, $config["db"]["user"], $config["db"]["pass"], $pdoOptions);
 
 } catch (PDOException $e) {
-  die($e->getMessage());
+  $logDir = __DIR__ . '/../storage/logs';
+  if (!is_dir($logDir)) {
+    @mkdir($logDir, 0755, true);
+  }
+  @file_put_contents(
+    $logDir . '/error.log',
+    '[' . date('c') . '] DB connection failed: ' . $e->getMessage() . "\n",
+    FILE_APPEND
+  );
+
+  if (function_exists('env_bool') && env_bool('APP_DEBUG', false)) {
+    die($e->getMessage());
+  }
+
+  if (!headers_sent()) {
+    http_response_code(500);
+  }
+  die('Application error.');
 }
 
 function get_currency_hash($code){

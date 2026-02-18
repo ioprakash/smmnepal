@@ -8,11 +8,13 @@ use PHPMailer\PHPMailer\Exception;
 require __DIR__ . '/partners/autoload.php';
 $mail = new PHPMailer(true);
 require __DIR__ . '/app/it.php';
-$first_route = explode('?', $_SERVER["REQUEST_URI"]);
-$gets = explode('&', $first_route[1]);
-foreach ($gets as $get) {
-  $get = explode('=', $get);
-  $_GET[$get[0]] = $get[1];
+$first_route = explode('?', $_SERVER["REQUEST_URI"], 2);
+if (isset($first_route[1]) && $first_route[1] !== '') {
+  $parsedGet = [];
+  parse_str($first_route[1], $parsedGet);
+  if (is_array($parsedGet) && !empty($parsedGet)) {
+    $_GET = array_merge($_GET, $parsedGet);
+  }
 }
 
 //require __DIR__.'/logger.php';

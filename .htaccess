@@ -1,7 +1,12 @@
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-RewriteRule ^([a-zA-Z0-9-_/]+)$ index.php [QSA]
+
+# NOTE: Do not force HTTPS here. In Docker or when TLS is terminated upstream
+# (Cloudflare/Nginx), redirecting at the app layer can break or cause loops.
+# Do HTTPS redirects at your reverse proxy / CDN instead.
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9-_/]+)$ index.php [QSA,L]
 
 <FilesMatch "\.(rar|zip|tar)">
 

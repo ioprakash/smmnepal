@@ -41,7 +41,7 @@ echo ""
 echo -e "${YELLOW}🔐 Setting permissions...${NC}"
 chmod -R 755 storage
 chmod -R 755 public
-chmod -R 755 uploads 2>/dev/null || true
+chmod -R 755 public/uploads 2>/dev/null || true
 echo -e "${GREEN}✅ Permissions set${NC}"
 echo ""
 

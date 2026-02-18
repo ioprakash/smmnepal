@@ -39,33 +39,27 @@ $row= $conn->prepare("SELECT * FROM clients WHERE username=:email ");
     
         
 
-     $htmlContent = "Hello,
-You requested a password change. To change your password follow the link below: ". site_url()."resetpassword/$token";  
-$to = $row["email"]; 
-$fromName = $_SERVER["HTTP_HOST"]; 
-$from =  "noreply@smmemail.com"; 
+      $resetUrl = site_url() . "resetpassword/$token";
+      $htmlContent = "Hello,<br><br>You requested a password change. To change your password follow the link below:<br><a href=\"" . $resetUrl . "\">" . $resetUrl . "</a>";
+      $to = $row["email"];
+      $subject = "Password Reset";
 
-$subject = "Password Reset"; 
-$mail->IsSMTP();
-$mail->CharSet = 'UTF-8';
-$mail->Host       = "mail.smmemail.com";   
-$mail->SMTPDebug  = 0;                     
-$mail->SMTPAuth   = true;                 
-$mail->Port       = 587;               
-$mail->Username   = $from;        
-$mail->Password   = "tJCz4dcV6FCNSrL";
-$mail->setFrom($from,$fromName);   
-$mail->addAddress($to);
-$mail->isHTML(true); 
-$mail->Subject = $subject;
-$mail->Body   = $htmlContent;
-if($mail->send()){ 
-$success    = 1;
-$successText= "We've sent the password reset instructions to your email. Don't forget to check your spam folder too.";
-}else{ 
-$error      = 1;
- $errorText  = $languageArray["error.resetpassword.fail"];
- }    
+      $sent = 0;
+      if (function_exists('sendMail')) {
+        $sent = sendMail([
+          "mail" => $to,
+          "subject" => $subject,
+          "body" => $htmlContent,
+        ]);
+      }
+
+      if ($sent) {
+        $success = 1;
+        $successText = "We've sent the password reset instructions to your email. Don't forget to check your spam folder too.";
+      } else {
+        $error = 1;
+        $errorText = $languageArray["error.resetpassword.fail"];
+      }
         
 
 

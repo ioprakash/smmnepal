@@ -1,3 +1,20 @@
+.git
+.github
+.vscode
+node_modules
+npm-debug.log
+yarn-error.log
 
-# REMOVED: dockerignore entries cleared per user request
+.env
+.env.*
+
+# Runtime writable dirs (bind-mounted in compose)
+storage
+public/uploads
+public/cache
+
+# Editor/OS
+*.swp
+*.swo
+.DS_Store
 

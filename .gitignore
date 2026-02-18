@@ -1,0 +1,16 @@
+.env
+.env.*
+
+# Runtime directories
+storage/
+public/uploads/
+public/cache/
+
+# Logs
+*.log
+
+# OS/Editor
+.DS_Store
+*.swp
+*.swo
+.vscode/
