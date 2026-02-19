@@ -21,6 +21,7 @@ if (route(1) == "neworder" || route(1) == "orders" || route(1) == "tickets" || r
 if ($_SESSION["msmbilisim_userlogin"] == 1  || $user["client_type"] == 1 || $settings["register_page"] == 1) {
   Header("Location:" . site_url());
 } elseif ($route[1] == "signup" && $_POST) {
+  try {
   foreach ($_POST as $key => $value) {
     $_SESSION["data"][$key]  = $value;
   }
@@ -300,6 +301,29 @@ $_SESSION["currency_hash"] = $currency_hash;
       $error      = 1;
       $errorText  = $languageArray["error.signup.fail"];
     endif;
+  }
+  } catch (Throwable $e) {
+    if (isset($conn) && $conn instanceof PDO) {
+      try {
+        if ($conn->inTransaction()) {
+          $conn->rollBack();
+        }
+      } catch (Throwable $ignored) {
+      }
+    }
+
+    $logDir = dirname(__DIR__, 2) . '/storage/logs';
+    if (!is_dir($logDir)) {
+      @mkdir($logDir, 0755, true);
+    }
+    @file_put_contents(
+      $logDir . '/signup_error.log',
+      '[' . date('c') . '] Signup error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine() . "\n" . $e->getTraceAsString() . "\n\n",
+      FILE_APPEND
+    );
+
+    $error = 1;
+    $errorText = $languageArray["error.signup.fail"] ?? 'Signup failed.';
   }
 }
 

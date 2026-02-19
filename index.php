@@ -440,26 +440,39 @@ if (route(0) != "admin" && route(0) != "ajax_data") {
   } else {
 
 
-    $uye_id = $user["client_id"];
-    $dripfeedvarmi = $conn->prepare("SELECT * FROM orders WHERE client_id=$uye_id and dripfeed=2");
-    if ($dripfeedvarmi->rowCount()) {
-      $dripfeedcount = 1;
-    } else {
+    $uye_id = (int)($user["client_id"] ?? 0);
+
+    $dripfeedcount = 0;
+    try {
+      if ($uye_id > 0) {
+        $dripfeedvarmi = $conn->prepare("SELECT 1 FROM orders WHERE client_id=:client_id AND dripfeed=2 LIMIT 1");
+        $dripfeedvarmi->execute(["client_id" => $uye_id]);
+        $dripfeedcount = $dripfeedvarmi->fetchColumn() ? 1 : 0;
+      }
+    } catch (Throwable $e) {
       $dripfeedcount = 0;
     }
 
-
-    $uye_id = $user["client_id"];
-    $refillvarmi = $conn->prepare("SELECT * FROM refill_status WHERE client_id=$uye_id ");
-    if ($refillvarmi->rowCount()) {
-      $refillavailable = 1;
-    } else {
+    $refillavailable = 0;
+    try {
+      if ($uye_id > 0) {
+        $refillvarmi = $conn->prepare("SELECT 1 FROM refill_status WHERE client_id=:client_id LIMIT 1");
+        $refillvarmi->execute(["client_id" => $uye_id]);
+        $refillavailable = $refillvarmi->fetchColumn() ? 1 : 0;
+      }
+    } catch (Throwable $e) {
+      // If the table doesn't exist (or any other DB error), treat as unavailable.
       $refillavailable = 0;
     }
-    $subscriptionsvarmi = $conn->prepare("SELECT * FROM orders WHERE client_id=$uye_id and subscriptions_type=2");
-    if ($subscriptionsvarmi->rowCount()) {
-      $subscriptionscount = 1;
-    } else {
+
+    $subscriptionscount = 0;
+    try {
+      if ($uye_id > 0) {
+        $subscriptionsvarmi = $conn->prepare("SELECT 1 FROM orders WHERE client_id=:client_id AND subscriptions_type=2 LIMIT 1");
+        $subscriptionsvarmi->execute(["client_id" => $uye_id]);
+        $subscriptionscount = $subscriptionsvarmi->fetchColumn() ? 1 : 0;
+      }
+    } catch (Throwable $e) {
       $subscriptionscount = 0;
     }
 

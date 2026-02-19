@@ -22,6 +22,8 @@ function CreateApiKey($data)
         return $key;
     }
 
+}
+
 function createPaymentCode()
 {
     global $conn;

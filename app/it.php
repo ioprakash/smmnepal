@@ -3,6 +3,49 @@
 session_start();
 ob_start();
 
+// Minimal global error logging to help diagnose blank 500 responses.
+// Logs fatal errors and uncaught exceptions to storage/logs/php_fatal.log.
+$__fatalLogDir = __DIR__ . '/../storage/logs';
+if (!is_dir($__fatalLogDir)) {
+  @mkdir($__fatalLogDir, 0755, true);
+}
+$__fatalLogFile = $__fatalLogDir . '/php_fatal.log';
+
+set_exception_handler(function (Throwable $e) use ($__fatalLogFile) {
+  @file_put_contents(
+    $__fatalLogFile,
+    '[' . date('c') . '] Uncaught exception: ' . $e->getMessage() .
+      ' in ' . $e->getFile() . ':' . $e->getLine() .
+      ' | URI=' . ($_SERVER['REQUEST_URI'] ?? '-') .
+      "\n" . $e->getTraceAsString() . "\n\n",
+    FILE_APPEND
+  );
+  if (!headers_sent()) {
+    http_response_code(500);
+  }
+  // Keep response minimal to avoid leaking details.
+  die('Application error.');
+});
+
+register_shutdown_function(function () use ($__fatalLogFile) {
+  $error = error_get_last();
+  if (!$error) {
+    return;
+  }
+  $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+  if (!in_array($error['type'] ?? 0, $fatalTypes, true)) {
+    return;
+  }
+  @file_put_contents(
+    $__fatalLogFile,
+    '[' . date('c') . '] Fatal error: ' . ($error['message'] ?? '-') .
+      ' in ' . ($error['file'] ?? '-') . ':' . ($error['line'] ?? '-') .
+      ' | URI=' . ($_SERVER['REQUEST_URI'] ?? '-') .
+      "\n\n",
+    FILE_APPEND
+  );
+});
+
 $config = require __DIR__.'/cn.php';
 
 try {
